@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:enigma_berry"
+    },
+    "title": {
+      "text": "Enigma Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Mutated from:\n",
+      "type": "text",
+      "extra": [
+        {
+          "text": "  Hopo + Occa\n  Hopo + Passho\n  Hopo + Wacan\n  Hopo + Rindo\n  Hopo + Yache\n  Hopo + Chople\n  Hopo + Kebia\n  Hopo + Shuca\n  Hopo + Coba\n  Hopo + Payapa\n  Hopo + Tanga\n  Hopo + Charti\n  Hopo + Kasib\n  Hopo + Haban\n  Hopo + Colbur\n  Hopo + Babiri\n  Hopo + Chilan\n  Hopo + Roseli",
+          "type": "text",
+          "color": "aqua"
+        }
+      ],
+      "color": "green"
+    }
+  },
+  "parent": "arrowcore:hopo",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:enigma_berry"
+          }
+        ]
+      }
+    }
+  }
+}

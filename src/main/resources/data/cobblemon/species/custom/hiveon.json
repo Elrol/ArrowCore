@@ -1,0 +1,91 @@
+{
+    "implemented": true,
+    "name": "hiveon",
+    "nationalPokedexNumber": 2009,
+    "primaryType": "bug",
+    "abilities": [
+        "compoundeyes",
+		"swarm",
+        "h:pressure"
+    ],
+    "baseStats": {
+        "hp": 75,
+        "attack": 115,
+        "defence": 100,
+        "special_attack": 70,
+        "special_defence": 85,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "fly": {
+                "canFly": true
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:bugbite",
+        "1:growl",
+        "1:tailwhip",
+        "1:tackle",
+        "1:absorb",
+        "5:stringshot",
+        "8:poisonsting",
+        "13:furyattack",
+        "16:laserfocus",
+        "17:quiverdance",
+        "20:spikes",
+        "23:assurance",
+        "24:stickyweb",
+        "27:pinmissile",
+        "30:uturn",
+        "33:strugglebug",
+        "37:firstimpression",
+        "39:pounce",
+        "41:leechlife",
+        "43:bugbuzz",
+        "50:fellstinger",
+        "54:venoshock",
+        "57:protect",
+        "60:gigadrain",
+        "67:swordsdance",
+        "73:facade",
+        "76:falseswipe",
+        "80:megahorn",
+        "tm:sludgebomb",
+        "tm:earthquake",
+        "tm:earthpower",
+        "tm:airslash"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.hiveon.desc1",
+        "cobblemon.species.hiveon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.75,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

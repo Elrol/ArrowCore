@@ -1,0 +1,24 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "hiveon",
+        "pokemon": "hiveon",
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "ultra-rare",
+        "level": "18-40",
+        "weight": 15.0,
+        "condition": {
+          "canSeeSky": true,
+          "biomes": [ "#cobblemon:is_overworld" ],
+          "neededNearbyBlocks": [
+            "minecraft:beehive",
+            "minecraft:bee_nest"
+          ]
+        }
+      }
+    ]
+  }

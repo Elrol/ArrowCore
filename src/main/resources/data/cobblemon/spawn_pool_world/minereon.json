@@ -1,0 +1,28 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "minereon",
+        "pokemon": "minereon",
+        "presets": [
+            "underground"
+        ],
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "ultra-rare",
+        "level": "18-40",
+        "weight": 8.0,
+        "condition": {
+          "canSeeSky": true,
+          "biomes": [ "#cobblemon:is_overworld" ]
+        },
+        "anticondition": {
+            "biomes": [
+                "#cobblemon:is_abyss"
+            ]
+        }
+      }
+    ]
+  }

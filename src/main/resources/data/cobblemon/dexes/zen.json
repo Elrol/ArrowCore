@@ -1,0 +1,15 @@
+{
+    "type": "cobblemon:simple_pokedex_def",
+    "id": "cobblemon:zen",
+    "sortOrder": 12,
+    "entries": [
+      "cobblemon:developer",
+      "cobblemon:shadow_mewtwo",
+      "cobblemon:shadow_articuno",
+      "cobblemon:shadow_mew",
+      "cobblemon:shadow_moltres",
+      "cobblemon:shadow_xerneas",
+      "cobblemon:shadow_zapdos"
+    ]
+  }
+  

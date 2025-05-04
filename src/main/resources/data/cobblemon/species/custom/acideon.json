@@ -1,0 +1,115 @@
+{
+    "implemented": true,
+    "name": "acideon",
+    "nationalPokedexNumber": 2005,
+    "primaryType": "poison",
+    "abilities": [
+        "poisonpoint",
+		"liquidooze",
+        "h:corrosion"
+    ],
+    "baseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defence": 80,
+        "special_attack": 105,
+        "special_defence": 85,
+        "speed": 70
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "swim": {
+                "swimSpeed": 0.2,
+                "canSwimInWater": true,
+				"canBreatheUnderwater": false
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "drops": {
+        "amount": "1",
+        "entries": [
+            {
+                "item": "cobblemon:poison_barb",
+                "quantityRange": "0-1",
+                "percentage": 66
+            }
+        ]
+    },
+    "moves": [
+        "1:bite",
+        "1:growl",
+        "1:faketears",
+        "1:smokescreen",
+        "1:helpinghand",
+        "1:sandattack",
+        "1:harden",
+        "4:poisonsting",
+        "7:knockoff",
+        "9:screech",
+        "12:acid",
+        "15:crunch",
+        "19:acidspray",
+        "23:poisongas",
+        "27:clearsmog",
+        "29:painsplit",
+        "32:metalclaw",
+        "34:toxic",
+        "38:sludgebomb",
+        "42:gunkshot",
+        "46:minimize",
+        "50:acidarmor",
+        "53:poisontail",
+        "58:yawn",
+        "60:crosspoison",
+        "tm:rest",
+        "tm:calmmind",
+        "tm:charm",
+        "tm:confuseray",
+        "tm:venoshock",
+        "tm:doubleteam",
+        "tm:leechseed",
+        "tm:imprison",
+        "tm:toxicspikes",
+        "tm:hyperbeam",
+        "tm:protect",
+        "tm:payback",
+        "tm:brutalstrength",
+        "tm:storedpower",
+        "tm:poisonjab",
+        "tm:terablast",
+        "tm:shadowball",
+        "tm:trickroom"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.acideon.desc1",
+        "cobblemon.species.acideon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.7,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+        "defence": 1,
+		"special_attack": 2
+    },
+    "height": 11,
+    "weight": 300
+}

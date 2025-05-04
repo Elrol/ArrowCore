@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:kelpsy_berry"
+    },
+    "title": {
+      "text": "Kelpsy Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Mutated from:\n",
+      "type": "text",
+      "extra": [
+        {
+          "text": "  Cornn + Rindo",
+          "type": "text",
+          "color": "aqua"
+        }
+      ],
+      "color": "green"
+    }
+  },
+  "parent": "arrowcore:cornn",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:kelpsy_berry"
+          }
+        ]
+      }
+    }
+  }
+}

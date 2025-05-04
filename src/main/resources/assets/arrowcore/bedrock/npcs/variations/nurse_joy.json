@@ -1,0 +1,13 @@
+{
+  "name": "arrowcore:nurse_joy",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "arrowcore:standard",
+      "model": "arrowcore:nurse_joy.geo",
+      "texture": "arrowcore:textures/npcs/nurse_joy.png",
+      "layers": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "id": "cobblemon:minereon",
+    "speciesId": "cobblemon:minereon",
+    "displayAspects": [],
+    "conditionAspects": [],
+    "forms": [
+      {
+        "displayForm": "Normal",
+        "unlockForms": [
+          "Normal"
+        ]
+      }
+    ],
+    "variations": []
+  }
+  

@@ -1,0 +1,19 @@
+{
+    "type": "cobblemon:simple_pokedex_def",
+    "id": "cobblemon:extraeeveelutions",
+    "sortOrder": 10,
+    "entries": [
+      "cobblemon:spectreon",
+      "cobblemon:acideon",
+      "cobblemon:champeon",
+      "cobblemon:aereon",
+      "cobblemon:minereon",
+      "cobblemon:hiveon",
+      "cobblemon:automeon",
+      "cobblemon:wyveon",
+      "cobblemon:dungeon",
+      "cobblemon:eeveeon",
+      "cobblemon:evereon"
+    ]
+  }
+  

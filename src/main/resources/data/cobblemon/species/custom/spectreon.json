@@ -1,0 +1,117 @@
+{
+    "implemented": true,
+    "name": "spectreon",
+    "nationalPokedexNumber": 2004,
+    "primaryType": "ghost",
+    "abilities": [
+        "prankster",
+		"insomnia",
+        "h:perishbody"
+    ],
+    "baseStats": {
+        "hp": 75,
+        "attack": 55,
+        "defence": 60,
+        "special_attack": 130,
+        "special_defence": 105,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "swim": {
+                "swimSpeed": 0.2,
+                "canSwimInWater": true,
+				"canBreatheUnderwater": false
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "drops": {
+        "amount": "2",
+        "entries": [
+            {
+                "item": "minecraft:soulsand",
+                "quantityRange": "1-2",
+                "percentage": 66
+            }
+        ]
+    },
+    "moves": [
+        "1:bite",
+        "1:growl",
+        "1:faketears",
+        "1:smokescreen",
+        "1:helpinghand",
+        "1:sandattack",
+        "5:hex",
+        "8:hypnosis",
+        "12:shadowball",
+        "14:bittermalice",
+        "17:nightshade",
+        "18:nastyplot",
+        "22:phantomforce",
+        "26:destinybond",
+        "30:confusion",
+        "34:dreameater",
+        "37:allyswitch",
+        "40:amnesia",
+        "43:worryseed",
+        "50:nightmare",
+        "54:thief",
+        "57:energyball",
+        "60:willowisp",
+        "67:frostbreath",
+        "73:quash",
+        "76:torment",
+        "80:doubleteam",
+        "tm:rest",
+        "tm:calmmind",
+        "tm:charm",
+        "tm:confuseray",
+        "tm:drainingkiss",
+        "tm:grassknot",
+        "tm:leechseed",
+        "tm:imprison",
+        "tm:magicroom",
+        "tm:lightscreen",
+        "tm:protect",
+        "tm:skillswap",
+        "tm:snore",
+        "tm:storedpower",
+        "tm:swagger",
+        "tm:terablast",
+        "tm:zenheadbutt",
+        "tm:poltergeist"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.spectreon.desc1",
+        "cobblemon.species.spectreon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.7,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+        "speed": 1,
+		"special_attack": 2
+    },
+    "height": 11,
+    "weight": 300
+}

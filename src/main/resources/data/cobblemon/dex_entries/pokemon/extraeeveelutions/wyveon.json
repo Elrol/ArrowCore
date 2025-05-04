@@ -1,0 +1,16 @@
+{
+    "id": "cobblemon:wyveon",
+    "speciesId": "cobblemon:wyveon",
+    "displayAspects": [],
+    "conditionAspects": [],
+    "forms": [
+      {
+        "displayForm": "Normal",
+        "unlockForms": [
+          "Normal"
+        ]
+      }
+    ],
+    "variations": []
+  }
+  

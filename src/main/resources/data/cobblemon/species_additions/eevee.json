@@ -1,0 +1,342 @@
+{
+    "target": "cobblemon:eevee",
+    "moves": [
+		"1:tailwhip",
+		"1:tackle",
+		"1:helpinghand",
+		"1:growl",
+		"1:covet",
+		"5:sandattack",
+		"10:quickattack",
+        "10:doublekick",
+		"15:babydolleyes",
+		"20:refresh",
+        "20:mirrormove",
+        "21:swift",
+		"25:bite",
+		"30:copycat",
+		"35:batonpass",
+		"40:takedown",
+		"45:trumpcard",
+		"50:doubleedge",
+		"55:lastresort",
+	
+        "tm:dig",
+        "tm:facade",
+        "tm:headbutt",
+        "tm:helpinghand",
+        "tm:irontail",
+        "tm:payday",
+        "tm:protect",
+        "tm:reflect",
+        "tm:rest",
+        "tm:shadowball",
+        "tm:substitute",
+        "tm:toxic",
+        "tutor:baddybad",
+        "tutor:bite",
+        "tutor:bouncybubble",
+        "tutor:buzzybuzz",
+        "tutor:dig",
+        "tutor:doubleedge",
+        "tutor:doublekick",
+        "tutor:facade",
+        "tutor:freezyfrost",
+        "tutor:glitzyglow",
+        "tutor:growl",
+        "tutor:headbutt",
+        "tutor:helpinghand",
+        "tutor:irontail",
+        "tutor:payday",
+        "tutor:protect",
+        "tutor:quickattack",
+        "tutor:reflect",
+        "tutor:rest",
+        "tutor:sandattack",
+        "tutor:sappyseed",
+        "tutor:shadowball",
+        "tutor:sizzlyslide",
+        "tutor:sparklyswirl",
+        "tutor:substitute",
+        "tutor:swift",
+        "tutor:tackle",
+        "tutor:tailwhip",
+        "tutor:takedown",
+        "tutor:toxic",
+        "tutor:veeveevolley"
+    ],
+    "evolutions": [
+      {
+        "id": "eevee_spectreon",
+        "variant": "level_up",
+        "result": "spectreon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "friendship",
+            "amount": 160
+          },
+          {
+            "variant": "biome",
+            "biomeCondition": "minecraft:soul_sand_valley"
+          }
+        ]
+      },
+      {
+        "id": "eevee_wyveon",
+        "variant": "level_up",
+        "result": "wyveon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "friendship",
+            "amount": 160
+          },
+          {
+            "variant": "world",
+            "identifier": "minecraft:the_end"
+          }
+        ]
+      },
+      {
+        "id": "eevee_automeon",
+        "variant": "item_interact",
+        "result": "automeon",
+        "consumeHeldItem": true,
+        "permanent": true,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:lever"
+          }
+        ],
+        "requiredContext": "minecraft:redstone_block"
+      },
+      {
+        "id": "eevee_acideon",
+        "variant": "level_up",
+        "result": "acideon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "party_member",
+            "contains": "true",
+            "target": "muk"
+          },
+          {
+            "variant": "level",
+            "minLevel": 24
+          }
+        ]
+      },
+      {
+        "id": "eevee_champeon",
+        "variant": "level_up",
+        "consumeHeldItem": true,
+        "permanent": true,
+        "result": "champeon",
+        "requirements": [
+          {
+            "variant": "held_item",
+            "itemCondition": "cobblemon:focus_band"
+          },
+          {
+            "variant": "level",
+            "minLevel": 36
+          }
+        ]
+      },
+      {
+        "id": "eevee_hiveon",
+        "variant": "level_up",
+        "result": "hiveon",
+        "consumeHeldItem": true,
+        "permanent": true,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "party_member",
+            "contains": "true",
+            "target": "beedrill"
+          },
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:beehive"
+          }
+        ]
+      },
+      {
+        "id": "eevee_minereon",
+        "variant": "level_up",
+        "result": "minereon",
+        "consumeHeldItem": true,
+        "permanent": true,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "biome",
+            "biomeCondition": "minecraft:dripstone_caves"
+          },
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:iron_pickaxe"
+          }
+        ]
+      },
+      {
+        "id": "eevee_aereon",
+        "variant": "level_up",
+        "result": "aereon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "has_move_type",
+            "type": "flying"
+          },
+          {
+            "variant": "biome",
+            "biomeCondition": "minecraft:windswept_hills"
+          }
+        ]
+      },
+      {
+        "id": "eevee_eeveeon",
+        "variant": "level_up",
+        "result": "eeveeon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "has_move",
+            "move": "lastresort"
+          },
+          {
+            "variant": "friendship",
+            "amount": 255
+          }
+        ]
+      },
+      {
+        "id": "eevee_dungeon",
+        "variant": "level_up",
+        "result": "dungeon",
+        "consumeHeldItem": true,
+        "permanent": true,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "biome",
+            "biomeCondition": "minecraft:deep_dark"
+          },
+          {
+            "variant": "held_item",
+            "itemCondition": "minecraft:lantern"
+          }
+        ]
+      },
+      {
+        "id": "eevee_evereon",
+        "variant": "level_up",
+        "result": "evereon",
+        "consumeHeldItem": false,
+        "learnableMoves": [],
+        "requirements": [
+          {
+            "variant": "defeat",
+            "target": "vaporeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "flareon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "jolteon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "umbreon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "espeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "leafeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "glaceon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "sylveon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "acideon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "aereon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "automeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "champeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "dungeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "eeveeon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "hiveon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "minereon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "spectreon",
+            "amount": 1
+          },
+          {
+            "variant": "defeat",
+            "target": "wyveon",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  }

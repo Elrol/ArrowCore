@@ -1,0 +1,16 @@
+{
+    "id": "cobblemon:evereon",
+    "speciesId": "cobblemon:evereon",
+    "displayAspects": [],
+    "conditionAspects": [],
+    "forms": [
+      {
+        "displayForm": "Normal",
+        "unlockForms": [
+          "Normal"
+        ]
+      }
+    ],
+    "variations": []
+  }
+  

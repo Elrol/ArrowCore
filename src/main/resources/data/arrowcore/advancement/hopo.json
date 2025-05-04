@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:hopo_berry"
+    },
+    "title": {
+      "text": "Hopo Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Mutated from:\n",
+      "type": "text",
+      "extra": [
+        {
+          "text": "  Lum + Leppa",
+          "type": "text",
+          "color": "aqua"
+        }
+      ],
+      "color": "green"
+    }
+  },
+  "parent": "arrowcore:lum",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:hopo_berry"
+          }
+        ]
+      }
+    }
+  }
+}

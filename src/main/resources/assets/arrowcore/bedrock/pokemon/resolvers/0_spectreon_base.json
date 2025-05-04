@@ -1,0 +1,46 @@
+{
+  "species": "cobblemon:spectreon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "arrowcore:spectreon",
+      "model": "arrowcore:spectreon.geo",
+      "texture": "arrowcore:textures/pokemon/spectreon/spectreon.png",
+      "layers": [
+        {
+          "name": "animation",
+          "texture": {
+            "frames": [
+              "arrowcore:textures/pokemon/spectreon/animation/wisp1.png",
+              "arrowcore:textures/pokemon/spectreon/animation/wisp2.png",
+              "arrowcore:textures/pokemon/spectreon/animation/wisp3.png"
+            ],
+          "fps": 6,
+          "loop": true
+        },
+        "emissive": true
+      }
+      ]
+    },
+    {
+      "aspects": [ "shiny" ],
+      "texture": "arrowcore:textures/pokemon/spectreon/spectreon_shiny.png",
+      "layers": [
+        {
+          "name": "animation",
+          "texture": {
+            "frames": [
+            "arrowcore:textures/pokemon/spectreon/animation/wisp1_s.png",
+            "arrowcore:textures/pokemon/spectreon/animation/wisp2_s.png",
+            "arrowcore:textures/pokemon/spectreon/animation/wisp3_s.png"
+          ],
+          "fps": 6,
+          "loop": true
+        },
+        "emissive": true
+        }
+      ]
+    }
+  ]
+}

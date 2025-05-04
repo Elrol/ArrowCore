@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "aereon",
+      "pokemon": "aereon",
+      "type": "pokemon",
+      "context": "grounded",
+      "bucket": "ultra-rare",
+      "level": "18-40",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": true,
+        "biomes": [ "minecraft:meadow", "minecraft:windswept_hills" ]
+      }
+    }
+  ]
+}

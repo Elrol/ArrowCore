@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:sitrus_berry"
+    },
+    "title": {
+      "text": "Sitrus Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Mutated from:\n",
+      "type": "text",
+      "extra": [
+        {
+          "text": "  Lum + Figy\n  Lum + Wiki\n  Lum + Mago\n  Lum + Aguav\n  Lum + Iapapa",
+          "type": "text",
+          "color": "aqua"
+        }
+      ],
+      "color": "green"
+    }
+  },
+  "parent": "arrowcore:lum",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:sitrus_berry"
+          }
+        ]
+      }
+    }
+  }
+}

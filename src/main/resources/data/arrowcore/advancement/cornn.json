@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:cornn_berry"
+    },
+    "title": {
+      "text": "Cornn Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Mutated from:\n",
+      "type": "text",
+      "extra": [
+        {
+          "text": "  Wiki + Bluk",
+          "type": "text",
+          "color": "aqua"
+        }
+      ],
+      "color": "green"
+    }
+  },
+  "parent": "arrowcore:wiki",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:cornn_berry"
+          }
+        ]
+      }
+    }
+  }
+}

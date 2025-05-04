@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:wacan_berry"
+    },
+    "title": {
+      "text": "Wacan Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Natural Berry",
+      "type": "text",
+      "color": "aqua"
+    }
+  },
+  "parent": "arrowcore:root",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:wacan_berry"
+          }
+        ]
+      }
+    }
+  }
+}

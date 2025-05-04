@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:coba_berry"
+    },
+    "title": {
+      "text": "Coba Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Natural Berry",
+      "type": "text",
+      "color": "aqua"
+    }
+  },
+  "parent": "arrowcore:root",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:coba_berry"
+          }
+        ]
+      }
+    }
+  }
+}

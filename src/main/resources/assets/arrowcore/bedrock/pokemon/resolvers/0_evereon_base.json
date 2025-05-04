@@ -1,0 +1,32 @@
+{
+    "species": "cobblemon:evereon",
+    "order": 0,
+    "variations": [
+      {
+        "aspects": [],
+        "poser": "arrowcore:evereon",
+        "model": "arrowcore:evereon.geo",
+        "texture": "arrowcore:textures/pokemon/evereon/evereon.png",
+        "layers": [
+          {
+            "name": "emissive",
+            "emissive": true,
+            "texture": "arrowcore:textures/pokemon/evereon/evereon_e.png",
+            "translucent": true
+          }
+        ]
+      },
+      {
+        "aspects": [ "shiny" ],
+        "texture": "arrowcore:textures/pokemon/evereon/evereon_shiny.png",
+        "layers": [
+          {
+            "name": "emissive",
+            "emissive": true,
+            "texture": "arrowcore:textures/pokemon/evereon/evereon_shiny_e.png",
+            "translucent": true
+          }
+        ]
+      }
+    ]
+  }

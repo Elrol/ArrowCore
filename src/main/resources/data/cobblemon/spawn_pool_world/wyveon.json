@@ -1,0 +1,25 @@
+{
+    "enabled": true,
+    "neededInstalledMods": [],
+    "neededUninstalledMods": [],
+    "spawns": [
+      {
+        "id": "wyveon",
+        "pokemon": "wyveon",
+        "type": "pokemon",
+        "context": "grounded",
+        "bucket": "ultra-rare",
+        "level": "18-40",
+        "weight": 8.0,
+        "condition": {
+          "canSeeSky": true,
+          "biomes": [ "#cobblemon:is_peak" ]
+        },
+        "anticondition": {
+            "biomes": [
+                "#cobblemon:is_snowy"
+            ]
+        }
+      }
+    ]
+  }

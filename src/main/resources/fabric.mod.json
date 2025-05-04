@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "arrowcore",
+  "version": "${version}",
+  "name": "ArrowCore",
+  "description": "The server mod for the Project: Zen server",
+  "authors": [
+    "Elrol"
+  ],
+  "license": "MIT License",
+  "icon": "assets/arrowcore/textures/elrol.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "dev.elrol.arrow.ArrowCore"
+    ]
+  },
+  "depends": {
+    "minecraft": "1.21.1",
+    "cobblemon": ">=1.6.0",
+    "luckperms": ">=5.4"
+  },
+  "mixins": [
+    "arrowcore.mixins.json"
+  ]
+}

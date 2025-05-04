@@ -1,0 +1,15 @@
+{
+  "id": "cobblemon:shadow_mew",
+  "speciesId": "cobblemon:shadow_mew",
+  "displayAspects": [],
+  "conditionAspects": [],
+  "forms": [
+    {
+      "displayForm": "Normal",
+      "unlockForms": [
+        "Normal"
+      ]
+    }
+  ],
+  "variations": []
+}

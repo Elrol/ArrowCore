@@ -1,0 +1,95 @@
+{
+    "implemented": true,
+    "name": "aereon",
+    "nationalPokedexNumber": 2007,
+    "primaryType": "flying",
+    "abilities": [
+        "unburden",
+		"hustle",
+        "h:simple"
+    ],
+    "baseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defence": 100,
+        "special_attack": 70,
+        "special_defence": 85,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "swim": {
+                "swimSpeed": 0.2,
+                "canSwimInWater": true,
+				"canBreatheUnderwater": false
+            },
+            "fly": {
+                "canFly": true
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:gust",
+        "1:growl",
+        "1:tailwhip",
+        "1:helpinghand",
+        "1:sandattack",
+        "5:leer",
+        "8:aircutter",
+        "12:bite",
+        "14:agility",
+        "17:raindance",
+        "18:airslash",
+        "22:tailwind",
+        "24:defog",
+        "26:acrobatics",
+        "30:scald",
+        "34:thunder",
+        "37:snowscape",
+        "37:blizzard",
+        "40:icebeam",
+        "43:aerialace",
+        "50:whirlwind",
+        "54:doubleteam",
+        "57:roost",
+        "60:fly",
+        "67:heatwave",
+        "73:solarbeam",
+        "76:featherdance",
+        "80:skydrop",
+        "tm:hurricane",
+        "tm:swordsdance",
+        "tm:fling"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.aereon.desc1",
+        "cobblemon.species.aereon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.6,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

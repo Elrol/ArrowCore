@@ -1,0 +1,21 @@
+{
+  "id": "cobblemon:shadow_zapdos",
+  "speciesId": "cobblemon:shadow_zapdos",
+  "displayAspects": [],
+  "conditionAspects": [],
+  "forms": [
+    {
+      "displayForm": "Normal",
+      "unlockForms": [
+        "Normal"
+      ]
+    },
+    {
+      "displayForm": "Galar",
+      "unlockForms": [
+        "Galar"
+      ]
+    }
+  ],
+  "variations": []
+}

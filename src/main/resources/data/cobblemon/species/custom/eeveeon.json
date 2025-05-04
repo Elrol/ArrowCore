@@ -1,0 +1,92 @@
+{
+    "implemented": true,
+    "name": "eeveeon",
+    "nationalPokedexNumber": 2013,
+    "primaryType": "normal",
+    "abilities": [
+        "adaptability",
+		"anticipation",
+        "h:normalize"
+    ],
+    "baseStats": {
+        "hp": 85,
+        "attack": 105,
+        "defence": 85,
+        "special_attack": 100,
+        "special_defence": 95,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:scratch",
+        "1:growl",
+        "1:tailwhip",
+        "1:tackle",
+        "1:sandattack",
+        "1:lastresort",
+        "5:fakeout",
+        "8:feint",
+        "12:bite",
+        "14:taunt",
+        "17:assurance",
+        "18:furyswipes",
+        "22:slash",
+        "24:playrough",
+        "26:headbutt",
+        "30:stomp",
+        "34:crunch",
+        "37:reversal",
+        "37:protect",
+        "40:headsmash",
+        "43:defensecurl",
+        "50:batonpass",
+        "54:agility",
+        "57:bounce",
+        "60:healingwish",
+        "67:machpunch",
+        "73:facade",
+        "76:hyperbeam",
+        "80:gigaimpact",
+        "tm:flamethrower",
+        "tm:surf",
+        "tm:energyball",
+        "tm:icebeam",
+        "tm:playrough",
+        "tm:ironhead",
+        "tm:psychic"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.eeveeon.desc1",
+        "cobblemon.species.eeveeon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.8,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

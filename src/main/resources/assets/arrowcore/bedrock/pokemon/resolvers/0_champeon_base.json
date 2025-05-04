@@ -1,0 +1,18 @@
+{
+  "species": "cobblemon:champeon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "arrowcore:champeon",
+      "model": "arrowcore:champeon.geo",
+      "texture": "arrowcore:textures/pokemon/champeon/champeon.png",
+      "layers": []
+    },
+    {
+      "aspects": [ "shiny" ],
+      "texture": "arrowcore:textures/pokemon/champeon/champeon_shiny.png",
+      "layers": []
+    }
+  ]
+}

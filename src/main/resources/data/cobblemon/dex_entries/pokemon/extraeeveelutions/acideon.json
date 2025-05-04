@@ -1,0 +1,16 @@
+{
+    "id": "cobblemon:acideon",
+    "speciesId": "cobblemon:acideon",
+    "displayAspects": [],
+    "conditionAspects": [],
+    "forms": [
+      {
+        "displayForm": "Normal",
+        "unlockForms": [
+          "Normal"
+        ]
+      }
+    ],
+    "variations": []
+  }
+  

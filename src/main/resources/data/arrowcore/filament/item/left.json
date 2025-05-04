@@ -1,0 +1,9 @@
+{
+  "id": "arrowcore:gui_left_button",
+  "vanillaItem": "minecraft:paper",
+  "itemResource":{
+    "models": {
+      "default": "arrowcore:item/gui/page/left"
+    }
+  }
+}

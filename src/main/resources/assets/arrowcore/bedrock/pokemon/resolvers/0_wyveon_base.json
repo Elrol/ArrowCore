@@ -1,0 +1,18 @@
+{
+  "species": "cobblemon:wyveon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "arrowcore:wyveon",
+      "model": "arrowcore:wyveon.geo",
+      "texture": "arrowcore:textures/pokemon/wyveon/wyveon.png",
+      "layers": []
+    },
+    {
+      "aspects": [ "shiny" ],
+      "texture": "arrowcore:textures/pokemon/wyveon/wyveon_shiny.png",
+      "layers": []
+    }
+  ]
+}

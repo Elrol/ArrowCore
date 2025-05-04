@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "acideon",
+      "pokemon": "acideon",
+      "type": "pokemon",
+      "context": "grounded",
+      "bucket": "ultra-rare",
+      "level": "18-40",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": true,
+        "biomes": [ "#cobblemon:is_swamp" ]
+      }
+    }
+  ]
+}

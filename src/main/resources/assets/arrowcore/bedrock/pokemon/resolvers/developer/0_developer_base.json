@@ -1,0 +1,19 @@
+{
+    "species": "cobblemon:developer",
+    "order": 0,
+    "variations": [
+        {
+            "aspects": [],
+            "poser": "arrowcore:developer",
+            "model": "arrowcore:developer.geo",
+            "texture": "arrowcore:textures/pokemon/developer/developer.png",
+            "layers": []
+        },
+        {
+            "aspects": [
+            "shiny"
+            ],
+            "texture": "arrowcore:textures/pokemon/developer/developer_shiny.png"
+        }
+    ]
+}

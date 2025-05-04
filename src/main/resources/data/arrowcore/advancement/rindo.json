@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:rindo_berry"
+    },
+    "title": {
+      "text": "Rindo Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Natural Berry",
+      "type": "text",
+      "color": "aqua"
+    }
+  },
+  "parent": "arrowcore:root",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:rindo_berry"
+          }
+        ]
+      }
+    }
+  }
+}

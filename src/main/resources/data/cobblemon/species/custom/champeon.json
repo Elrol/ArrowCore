@@ -1,0 +1,96 @@
+{
+    "implemented": true,
+    "name": "champeon",
+    "nationalPokedexNumber": 2006,
+    "primaryType": "fighting",
+    "abilities": [
+        "furcoat",
+		"defiant",
+        "h:scrappy"
+    ],
+    "baseStats": {
+        "hp": 85,
+        "attack": 130,
+        "defence": 80,
+        "special_attack": 65,
+        "special_defence": 75,
+        "speed": 85
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "swim": {
+                "swimSpeed": 0.2,
+                "canSwimInWater": true,
+				"canBreatheUnderwater": false
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:assurance",
+        "1:growl",
+        "1:tailwhip",
+        "1:helpinghand",
+        "1:sandattack",
+        "1:firepunch",
+        "1:icepunch",
+        "1:thunderpunch",
+        "5:vacuumwave",
+        "8:machpunch",
+        "12:quickguard",
+        "14:agility",
+        "17:drainpunch",
+        "18:bulletpunch",
+        "22:protect",
+        "26:counter",
+        "30:feint",
+        "34:pursuit",
+        "37:megapunch",
+        "40:skyuppercut",
+        "43:frustration",
+        "50:round",
+        "54:fling",
+        "57:stoneedge",
+        "60:brickbreak",
+        "67:closecombat",
+        "73:bulkup",
+        "76:torment",
+        "80:detect",
+        "tm:bodypress",
+        "tm:irondefense",
+        "tm:substitute",
+        "tm:firepunch",
+        "tm:icepunch",
+        "tm:thunderpunch"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.champeon.desc1",
+        "cobblemon.species.champeon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.9,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"attack": 3
+    },
+    "height": 11,
+    "weight": 300
+}

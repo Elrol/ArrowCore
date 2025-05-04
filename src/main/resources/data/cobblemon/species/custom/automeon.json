@@ -1,0 +1,89 @@
+{
+    "implemented": true,
+    "name": "automeon",
+    "nationalPokedexNumber": 2010,
+    "primaryType": "steel",
+    "abilities": [
+        "battlearmor",
+		"clearbody",
+        "h:analytic"
+    ],
+    "baseStats": {
+        "hp": 85,
+        "attack": 100,
+        "defence": 130,
+        "special_attack": 70,
+        "special_defence": 85,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:chargebeam",
+        "1:gearup",
+        "1:tailwhip",
+        "1:tackle",
+        "1:thundershock",
+        "5:metalsound",
+        "8:charge",
+        "12:chargebeam",
+        "14:autonomize",
+        "17:discharge",
+        "18:geargrind",
+        "22:lockon",
+        "24:stomp",
+        "26:irondefense",
+        "30:heavyslam",
+        "34:zapcannon",
+        "37:selfdestruct",
+        "37:ironhead",
+        "40:stealthrock",
+        "43:thunderwave",
+        "50:steelroller",
+        "54:metalclaw",
+        "57:meteormash",
+        "60:magnetrise",
+        "67:swordsdance",
+        "73:bulletpunch",
+        "76:gyroball",
+        "80:honeclaws",
+        "tm:shiftgear",
+        "tm:trickroom",
+        "tm:recover",
+        "tm:explosion",
+        "tm:smartstrike"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.automeon.desc1",
+        "cobblemon.species.automeon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.8,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

@@ -1,0 +1,16 @@
+{
+    "id": "cobblemon:hiveon",
+    "speciesId": "cobblemon:hiveon",
+    "displayAspects": [],
+    "conditionAspects": [],
+    "forms": [
+      {
+        "displayForm": "Normal",
+        "unlockForms": [
+          "Normal"
+        ]
+      }
+    ],
+    "variations": []
+  }
+  

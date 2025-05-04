@@ -1,0 +1,18 @@
+{
+  "species": "cobblemon:hiveon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "arrowcore:hiveon",
+      "model": "arrowcore:hiveon.geo",
+      "texture": "arrowcore:textures/pokemon/hiveon/hiveon.png",
+      "layers": []
+    },
+    {
+      "aspects": [ "shiny" ],
+      "texture": "arrowcore:textures/pokemon/hiveon/hiveon_shiny.png",
+      "layers": []
+    }
+  ]
+}

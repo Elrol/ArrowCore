@@ -1,0 +1,93 @@
+{
+    "implemented": true,
+    "name": "wyveon",
+    "nationalPokedexNumber": 2011,
+    "primaryType": "dragon",
+    "abilities": [
+        "rivalry",
+		"overcoat",
+        "h:rockhead"
+    ],
+    "baseStats": {
+        "hp": 85,
+        "attack": 100,
+        "defence": 90,
+        "special_attack": 110,
+        "special_defence": 75,
+        "speed": 95
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true,
+            "fly": {
+                "canFly": true
+            }
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:scratch",
+        "1:takedown",
+        "1:tailwhip",
+        "1:leer",
+        "1:falseswipe",
+        "5:assurance",
+        "8:dragonclaw",
+        "12:metalclaw",
+        "14:aerialace",
+        "17:bellydrum",
+        "18:dragonbreath",
+        "22:blizzard",
+        "24:headcharge",
+        "26:flareblitz",
+        "30:outrage",
+        "34:thunderbolt",
+        "37:steelbeam",
+        "37:acidarmor",
+        "40:shadowclaw",
+        "43:stealthrock",
+        "50:irontail",
+        "54:metalclaw",
+        "57:substitute",
+        "60:snarl",
+        "67:dragondance",
+        "73:dragonhammer",
+        "76:dualchop",
+        "80:dracometeor",
+        "tm:rest",
+        "tm:sleeptalk",
+        "tm:agility",
+        "tm:skyattack",
+        "tm:bravebird",
+        "tm:wavecrash"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.wyveon.desc1",
+        "cobblemon.species.wyveon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 1.2,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

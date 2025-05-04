@@ -1,0 +1,31 @@
+{
+  "portraitScale": 1.85,
+  "portraitTranslation": [-0.5, 0, 0],
+  "profileScale": 0.8,
+  "profileTranslation": [0, 0.68, 0],
+  "animations": {
+    "faint": "q.bedrock_primary('spectreon', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('spectreon', 'cry')"
+  },
+  "poses": {
+    "standing": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE"],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('spectreon', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('spectreon', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": ["WALK"],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('spectreon', 'ground_run')"
+      ],
+      "quirks": ["q.bedrock_quirk('spectreon', 'blink')"]
+    }
+  }
+ }

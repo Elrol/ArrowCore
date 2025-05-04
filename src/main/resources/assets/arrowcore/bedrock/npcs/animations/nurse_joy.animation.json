@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nurse_joy.idle": {
+			"loop": true,
+			"bones": {
+				"arm_left": {
+					"rotation": [
+						"math.r2d(-math.cos(v.limb_swing * 38.17) * v.limb_swing_amount - math.sin(v.age_in_ticks * 5.16) * 0.05)",
+						0,
+						"-math.r2d(math.cos(v.age_in_ticks * 5.16) * 0.05 + 0.05)"
+					]
+				},
+				"arm_right": {
+					"rotation": [
+						"math.r2d(math.cos(v.limb_swing * 38.17) * v.limb_swing_amount + math.sin(v.age_in_ticks * 5.16) * 0.05)",
+						0,
+						"math.r2d(math.cos(v.age_in_ticks * 5.16) * 0.05 + 0.05)"
+					]
+				},
+				"leg_right": {
+					"rotation": ["math.r2d(math.cos(v.limb_swing * 38.17 + 180) * v.limb_swing_amount * 1.4)", 0, 0]
+				},
+				"leg_left": {
+					"rotation": ["math.r2d(math.cos(v.limb_swing * 38.17) * v.limb_swing_amount * 1.4)", 0, 0]
+				}
+			}
+		},
+		"animation.nurse_joy.blink": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1667,
+			"bones": {
+				"eyelid_right": {
+					"position": {
+						"0.0": [0, 0, -0.1],
+						"0.125": [0, 0, -0.1],
+						"0.1667": [0, 0, 0]
+					}
+				},
+				"eyelid_left": {
+					"position": {
+						"0.0": [0, 0, -0.1],
+						"0.125": [0, 0, -0.1],
+						"0.1667": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

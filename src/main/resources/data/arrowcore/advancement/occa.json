@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:occa_berry"
+    },
+    "title": {
+      "text": "Occa Berry",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "Natural Berry",
+      "type": "text",
+      "color": "aqua"
+    }
+  },
+  "parent": "arrowcore:root",
+  "criteria": {
+    "berry": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:occa_berry"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+    "implemented": true,
+    "name": "minereon",
+    "nationalPokedexNumber": 2008,
+    "primaryType": "rock",
+    "abilities": [
+        "sandforce",
+		"sturdy",
+        "h:keeneye"
+    ],
+    "baseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defence": 100,
+        "special_attack": 70,
+        "special_defence": 85,
+        "speed": 110
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:rollout",
+        "1:growl",
+        "1:tailwhip",
+        "1:tackle",
+        "1:sandattack",
+        "5:rockpolish",
+        "8:sandstorm",
+        "12:harden",
+        "14:rockthrow",
+        "17:selfdestruct",
+        "18:stealthrock",
+        "22:bulldoze",
+        "24:ancientpower",
+        "26:headsmash",
+        "30:rocksmash",
+        "34:powergem",
+        "37:tarshot",
+        "37:irondefense",
+        "40:headbutt",
+        "43:mudslap",
+        "50:rocktomb",
+        "54:rockslide",
+        "57:protect",
+        "60:superpower",
+        "67:stoneedge",
+        "73:facade",
+        "76:bulldoze",
+        "80:earthquake",
+        "tm:dazzlinggleam",
+        "tm:explosion",
+        "tm:reflect",
+        "tm:ironhead",
+        "tm:recover",
+        "tm:destinybond"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.minereon.desc1",
+        "cobblemon.species.minereon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.8,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

@@ -1,0 +1,21 @@
+{
+  "id": "cobblemon:shadow_articuno",
+  "speciesId": "cobblemon:shadow_articuno",
+  "displayAspects": [],
+  "conditionAspects": [],
+  "forms": [
+    {
+      "displayForm": "Normal",
+      "unlockForms": [
+        "Normal"
+      ]
+    },
+    {
+      "displayForm": "Shadow Neutral",
+      "unlockForms": [
+        "Shadow Neutral"
+      ]
+    }
+  ],
+  "variations": []
+}

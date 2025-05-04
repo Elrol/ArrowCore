@@ -1,0 +1,87 @@
+{
+    "implemented": true,
+    "name": "dungeon",
+    "nationalPokedexNumber": 2012,
+    "primaryType": "ground",
+    "abilities": [
+        "arenatrap",
+		"owntempo",
+        "h:moldbreaker"
+    ],
+    "baseStats": {
+        "hp": 75,
+        "attack": 115,
+        "defence": 100,
+        "special_attack": 70,
+        "special_defence": 75,
+        "speed": 60
+    },
+	"behaviour": {
+        "moving": {
+            "canLook": true
+        }
+    },
+    "catchRate": 45,
+    "maleRatio": 0.875,
+    "shoulderMountable": false,
+    "forms": [],
+    "baseExperienceYield": 184,
+    "experienceGroup": "medium_fast",
+    "eggCycles": 35,
+    "eggGroups": [
+        "field"
+    ],
+    "moves": [
+        "1:scratch",
+        "1:growl",
+        "1:tailwhip",
+        "1:tackle",
+        "1:sandattack",
+        "5:sandtomb",
+        "8:sandstorm",
+        "12:mudslap",
+        "14:suckerpunch",
+        "17:dig",
+        "22:bulldoze",
+        "24:ancientpower",
+        "26:earthpower",
+        "30:mudshot",
+        "34:rockblast",
+        "37:sludgebomb",
+        "37:substitute",
+        "40:gigaimpact",
+        "43:metalclaw",
+        "50:rocktomb",
+        "54:rockslide",
+        "57:bonerush",
+        "60:bonemerang",
+        "67:stoneedge",
+        "73:stompingtantrum",
+        "76:earthquake",
+        "80:fissure",
+        "tm:recover",
+        "tm:explosion",
+        "tm:stealthrock",
+        "tm:imprison"
+      ],
+    "labels": [
+        "custom"
+    ],
+    "pokedex": [
+        "cobblemon.species.dungeon.desc1",
+        "cobblemon.species.dungeon.desc2"
+    ],
+    "preEvolution": "eevee",
+    "baseScale": 0.8,
+    "hitbox": {
+        "width": 0.9,
+        "height": 1.1,
+        "fixed": false
+    },
+    "baseFriendship": 35,
+    "evYield": {
+		"speed": 2
+    },
+    "height": 11,
+    "weight": 300
+}

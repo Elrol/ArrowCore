@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:oran_berry",
+	"components": {
+        "minecraft:custom_model_data": 1
+      }
+    },
+    "title": {
+      "text": "Berry Farming",
+      "type": "text",
+      "color": "dark_green"
+    },
+    "description": {
+      "text": "A guide to farming all the berries",
+      "type": "text",
+      "color": "green"
+    },
+    "background": "cobblemon:textures/gui/advancements/backgrounds/cobblemon.png"
+  },
+  "criteria": {
+    "oran": {
+      "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		  "Items": [{
+			  "items": "#cobblemon:berries"
+		  }]
+	  }
+    }
+  },
+  "sends_telemetry_event": false
+}
