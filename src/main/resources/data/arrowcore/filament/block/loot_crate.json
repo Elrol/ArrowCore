@@ -1,9 +1,0 @@
-{
-  "id": "arrowcore:loot_crate",
-  "blockResource": {
-    "models": {
-      "default": "arrowcore:custom/block/loot_crate"
-    }
-  },
-  "blockModelType": "transparent_block"
-}

@@ -31,6 +31,12 @@ public class _ModMenu extends SimpleGui {
         MenuCloseCallback.EVENT.invoker().onClose(player);
     }
 
+    public void createTimer(TimerTask task, long delay) {
+        if(timer == null) timer = new Timer();
+
+        timer.schedule(task, delay);
+    }
+
     public void createTimer(TimerTask task, long delay, long period) {
         if(timer == null) timer = new Timer();
 

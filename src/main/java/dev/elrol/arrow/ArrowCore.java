@@ -17,6 +17,7 @@ import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.impactdev.impactor.api.Impactor;
@@ -39,6 +40,7 @@ public class ArrowCore implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(Constants.MODID);
     public static ArrowConfig CONFIG = new ArrowConfig();
     public static final IArrowAPI INSTANCE = new ArrowAPI();
+    public static final CoreMenuItems MENU_ITEMS = new CoreMenuItems();
 
     public static void registerMod(String modid) {
         FilamentLoader.loadModels(modid, modid);
@@ -81,6 +83,15 @@ public class ArrowCore implements ModInitializer {
     }
 
     private void registerEvents() {
+
+        ServerMessageEvents.CHAT_MESSAGE.register(((message, sender, params) -> {
+            //sender.sendMessage(Text.literal("This is the chat message"));
+        }));
+
+        ServerMessageEvents.GAME_MESSAGE.register(((server, message, overlay) -> {
+            //server.sendMessage(Text.literal("This is the game message"));
+        }));
+
         IEventRegistry eventRegistry = INSTANCE.getEventRegistry();
         IEconomyRegistry economyRegistry = INSTANCE.getEconomyRegistry();
 
@@ -95,7 +106,7 @@ public class ArrowCore implements ModInitializer {
                 ArrowCore.LOGGER.info("Server Data Folder Found: {}", Constants.SERVER_DATA_DIR);
             }
 
-            CoreMenuItems.register();
+            MENU_ITEMS.register();
             registerMenus();
 
             INSTANCE.getPlayerDataRegistry().loadAll();
