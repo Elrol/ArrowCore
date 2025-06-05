@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:shadow_articuno",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:articuno",
+      "model": "arrowcore:shadow_articuno.geo",
+      "texture": "arrowcore:textures/pokemon/0144_shadow_articuno/articuno_shadow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "arrowcore:textures/pokemon/0144_shadow_articuno/articuno_shadow_shiny.png"
+    }
+  ]
+}

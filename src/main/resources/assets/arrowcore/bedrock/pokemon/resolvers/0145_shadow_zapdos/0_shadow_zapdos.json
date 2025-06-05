@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:shadow_zapdos",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:zapdos",
+      "model": "arrowcore:shadow_zapdos.geo",
+      "texture": "arrowcore:textures/pokemon/0145_shadow_zapdos/zapdos_shadow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "arrowcore:textures/pokemon/0145_shadow_zapdos/zapdos_shadow_shiny.png"
+    }
+  ]
+}

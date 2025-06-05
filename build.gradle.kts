@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "dev.elrol.arrow"
-version = "1.6.2"
+version = "1.6.7"
 
 architectury {
     platformSetupLoomIde()

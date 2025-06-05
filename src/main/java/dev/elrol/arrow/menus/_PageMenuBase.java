@@ -38,7 +38,11 @@ public abstract class _PageMenuBase extends _MenuBase {
         setSlot(36, GuiElementBuilder.from(new ItemStack(page <= 0 ? CoreMenuItems.LEFT_BUTTON_DISABLED : CoreMenuItems.LEFT_BUTTON)).setCallback((index, clickType, slotActionType, slotGuiInterface) -> {
                     if (page > 0) {
                         page--;
-                        Objects.requireNonNull(ArrowCore.INSTANCE.getMenuRegistry().createMenu(getMenuName(), player)).open();
+                        _PageMenuBase pageMenu = (_PageMenuBase) ArrowCore.INSTANCE.getMenuRegistry().createMenu(getMenuName(), player);
+                        if(pageMenu != null) {
+                            pageMenu.page = page;
+                            pageMenu.open();
+                        }
                     }
                 }).setName(ModTranslations.translate("arrow.menu.item.page.next").formatted(page < getLastPage() ? Formatting.RED : Formatting.DARK_GRAY))
         );
@@ -46,7 +50,6 @@ public abstract class _PageMenuBase extends _MenuBase {
         setSlot(44, GuiElementBuilder.from(new ItemStack(page >= getLastPage() ? CoreMenuItems.RIGHT_BUTTON_DISABLED : CoreMenuItems.RIGHT_BUTTON)).setCallback((index, clickType, slotActionType, slotGuiInterface) -> {
                     if (page < getLastPage()) {
                         page++;
-                        //_PageMenuBase pageMenu = new _PageMenuBase(player, page);
                         _PageMenuBase pageMenu = (_PageMenuBase) ArrowCore.INSTANCE.getMenuRegistry().createMenu(getMenuName(), player);
                         if(pageMenu != null) {
                             pageMenu.page = page;

@@ -11,6 +11,8 @@ import dev.elrol.arrow.api.events.ArrowEvents;
 import dev.elrol.arrow.api.registries.IServerDataRegistry;
 import dev.elrol.arrow.libs.Constants;
 import dev.elrol.arrow.libs.JsonUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -34,26 +36,22 @@ public class ModServerDataRegistry implements IServerDataRegistry {
         JsonUtils.saveToJson(Constants.SERVER_DATA_DIR, "server_data.dat", this);
     }
 
-    public <T extends IServerData> T get(Class<T> clazz) {
-        try {
-            T newInstance = clazz.getDeclaredConstructor().newInstance();
-            String key = newInstance.getDataID();
-            Codec<T> codec = newInstance.getCodec();
-            if(codec != null) {
-                if(serverDataMap.containsKey(key)) {
-                    DataResult<Pair<T, JsonElement>> result = codec.decode(JsonOps.INSTANCE, serverDataMap.get(key));
-                    if(result.isSuccess()) {
-                        return result.getOrThrow().getFirst();
-                    }
-                } else {
-                    serverDataMap.put(newInstance.getDataID(), codec.encodeStart(JsonOps.INSTANCE, newInstance).getOrThrow());
-                    save();
+    @NonNull
+    public <T extends IServerData> T get(@NonNull T defaultObject) {
+        String key = defaultObject.getDataID();
+        Codec<T> codec = defaultObject.getCodec();
+        if (codec != null) {
+            if (serverDataMap.containsKey(key)) {
+                DataResult<Pair<T, JsonElement>> result = codec.decode(JsonOps.INSTANCE, serverDataMap.get(key));
+                if (result.isSuccess()) {
+                    return result.getOrThrow().getFirst();
                 }
+            } else {
+                serverDataMap.put(defaultObject.getDataID(), codec.encodeStart(JsonOps.INSTANCE, defaultObject).getOrThrow());
+                save();
             }
-            return newInstance;
-        } catch(InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new RuntimeException(e);
         }
+        return defaultObject;
     }
 
     @Override

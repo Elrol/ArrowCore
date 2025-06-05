@@ -6,12 +6,12 @@
       "aspects": [],
       "poser": "cobblemon:mewtwo",
       "model": "arrowcore:shadow_mewtwo.geo",
-      "texture": "arrowcore:textures/pokemon/10150_shadow_mewtwo/shadow_mewtwo.png",
+      "texture": "arrowcore:textures/pokemon/0150_shadow_mewtwo/shadow_mewtwo.png",
       "layers": []
     },
     {
       "aspects": ["shiny"],
-      "texture": "arrowcore:textures/pokemon/10150_shadow_mewtwo/shadow_mewtwo_shiny.png"
+      "texture": "arrowcore:textures/pokemon/0150_shadow_mewtwo/shadow_mewtwo_shiny.png"
     }
   ]
 }

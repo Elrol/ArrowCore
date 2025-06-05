@@ -110,6 +110,7 @@ public class ArrowCore implements ModInitializer {
             registerMenus();
 
             INSTANCE.getPlayerDataRegistry().loadAll();
+            IServerDataRegistry serverDataRegistry = INSTANCE.getServerDataRegistry();
 
             if(CONFIG.transferImpactorToArrowEcon) {
                 EconomyService service = Impactor.instance().services().provide(EconomyService.class);
@@ -152,9 +153,9 @@ public class ArrowCore implements ModInitializer {
                 });
             }
 
-            INSTANCE.getServerDataRegistry().load();
+            serverDataRegistry.load();
 
-            ServerDataCore serverDataCore = INSTANCE.getServerDataRegistry().get(ServerDataCore.class);
+            ServerDataCore serverDataCore = serverDataRegistry.get(new ServerDataCore());
             if(CONFIG.isDebug) LOGGER.warn("ServerDataCore loaded: {}", serverDataCore.placeholder);
         }));
 
@@ -191,7 +192,13 @@ public class ArrowCore implements ModInitializer {
             ServerPlayerEntity player = networkHandler.player;
             IPlayerDataRegistry playerDataRegistry = INSTANCE.getPlayerDataRegistry();
             PlayerData data = playerDataRegistry.getPlayerData(player);
+            PlayerDataCore coreData = data.get(new PlayerDataCore());
+
+            coreData.teleportHistory.clear();
+            data.put(coreData);
+
             ArrowEvents.PLAYER_DATA_UNLOADING_EVENT.invoker().unloading(player, data);
+
             playerDataRegistry.save(player.getUuid());
             if(CONFIG.isDebug) LOGGER.warn("{} has disconnected. Data was saved.", networkHandler.player.getName().getLiteralString());
         }));

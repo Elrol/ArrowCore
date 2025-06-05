@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:shadow_mew",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:mew",
+      "model": "arrowcore:shadow_mew.geo",
+      "texture": "arrowcore:textures/pokemon/0151_shadow_mew/mew_shadow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "arrowcore:textures/pokemon/0151_shadow_mew/mew_shadow_shiny.png"
+    }
+  ]
+}

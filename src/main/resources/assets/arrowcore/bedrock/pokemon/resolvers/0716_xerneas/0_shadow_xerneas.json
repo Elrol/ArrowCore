@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:shadow_xerneas",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:xerneas",
+      "model": "arrowcore:shadow_xerneas.geo",
+      "texture": "arrowcore:textures/pokemon/0716_shadow_xerneas/xerneas_shadow.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "arrowcore:textures/pokemon/0716_shadow_xerneas/xerneas_shadow_shiny.png"
+    }
+  ]
+}
