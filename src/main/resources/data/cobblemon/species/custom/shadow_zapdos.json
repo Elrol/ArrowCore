@@ -323,23 +323,7 @@
   "pokedex": [
     "cobblemon.species.shadowzapdos.desc"
   ],
-  "evolutions": [ {
-    "preEvolution": "mew",
-    "id": "shadow_zapdos_zapdos",
-    "variant": "item_interact",
-    "result": "zapdos",
-    "consumeHeldItem": true,
-    "learnableMoves": [
-    ],
-    "requirements": [
-      {
-        "variant": "time_range",
-        "range": "day"
-  }
-  ],
-    "requiredContext": "cobblemon_shadow:purified_gem"
-  }
-],
+  "evolutions": [],
   "baseScale": 1.5,
   "hitbox": {
     "width": 1.2,
@@ -358,5 +342,6 @@
   "height": 16,
   "weight": 526,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "preEvolution": "zapdos"
 }

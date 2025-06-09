@@ -313,22 +313,7 @@
   "pokedex": [
     "cobblemon.species.shadowmoltres.desc"
   ],
-  "evolutions": [ {
-    "id": "shadow_moltres_moltres",
-    "variant": "item_interact",
-    "result": "moltres",
-    "consumeHeldItem": true,
-    "learnableMoves": [
-    ],
-    "requirements": [
-      {
-        "variant": "time_range",
-        "range": "day"
-  }
-  ],
-    "requiredContext": "cobblemon_shadow:purified_gem"
-  }
-],
+  "evolutions": [],
   "baseScale": 1.6,
   "hitbox": {
     "width": 0.8,
@@ -347,5 +332,6 @@
   "height": 20,
   "weight": 600,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "preEvolution": "moltres"
 }

@@ -472,5 +472,6 @@
   "height": 20,
   "weight": 1220,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "preEvolution": "mewtwo"
 }

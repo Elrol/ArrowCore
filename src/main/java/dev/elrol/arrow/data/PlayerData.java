@@ -16,7 +16,7 @@ public class PlayerData {
 
 
     public final Map<String, JsonElement> data = new HashMap<>();
-    final UUID uuid;
+    public final UUID uuid;
 
     public PlayerData(ServerPlayerEntity player) {
         uuid = player.getUuid();

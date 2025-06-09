@@ -221,21 +221,7 @@
   "pokedex": [
     "cobblemon.species.shadowxerneas.desc"
   ],
-  "evolutions": [ {
-    "id": "shadow_xerneas_xerneas",
-    "variant": "item_interact",
-    "result": "xerneas",
-    "consumeHeldItem": true,
-    "learnableMoves": [],
-    "requirements": [
-      {
-        "variant": "time_range",
-        "range": "day"
-  }
-  ],
-    "requiredContext": "cobblemon_shadow:purified_gem"
-  }
-],
+  "evolutions": [],
   "baseScale": 1,
   "hitbox": {
     "width": 2,
@@ -254,5 +240,6 @@
   "height": 30,
   "weight": 2150,
   "aspects": [],
-  "cannotDynamax": false
+  "cannotDynamax": false,
+  "preEvolution": "xerneas"
 }

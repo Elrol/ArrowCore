@@ -322,23 +322,8 @@
   "pokedex": [
     "cobblemon.species.articuno.desc"
   ],
-  "preEvolution": "mew",
-  "evolutions": [ {
-    "id": "shadow_articuno_articuno",
-    "variant": "item_interact",
-    "result": "articuno",
-    "consumeHeldItem": true,
-    "learnableMoves": [
-    ],
-    "requirements": [
-      {
-        "variant": "time_range",
-        "range": "day"
-  }
-  ],
-    "requiredContext": "cobblemon_shadow:purified_gem"
-  }
-],
+  "preEvolution": "articuno",
+  "evolutions": [],
   "baseScale": 1.5,
   "hitbox": {
     "width": 0.7,
