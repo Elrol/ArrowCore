@@ -6,7 +6,15 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 
+import java.util.List;
+
 public final class ArrowEvents {
+
+    public static final Event<AllPlayerDataLoaded> ALL_PLAYER_DATA_LOADED_EVENT = EventFactory.createArrayBacked(AllPlayerDataLoaded.class, (listeners) -> (list) -> {
+        for(AllPlayerDataLoaded listener : listeners) {
+            listener.loaded(list);
+        }
+    });
 
     public static final Event<PlayerDataLoaded> PLAYER_DATA_LOADED_EVENT = EventFactory.createArrayBacked(PlayerDataLoaded.class, (listeners) -> (player, data) -> {
         for(PlayerDataLoaded listener : listeners) {
@@ -31,6 +39,11 @@ public final class ArrowEvents {
             listener.loaded();
         }
     });
+
+    @FunctionalInterface
+    public interface AllPlayerDataLoaded {
+        void loaded(List<PlayerData> playerDataList);
+    }
 
     @FunctionalInterface
     public interface PlayerDataLoaded {

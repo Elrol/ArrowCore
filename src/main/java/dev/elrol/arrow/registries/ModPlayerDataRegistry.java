@@ -3,6 +3,7 @@ package dev.elrol.arrow.registries;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import dev.elrol.arrow.ArrowCore;
+import dev.elrol.arrow.api.events.ArrowEvents;
 import dev.elrol.arrow.api.registries.IPlayerDataRegistry;
 import dev.elrol.arrow.data.PlayerData;
 import dev.elrol.arrow.libs.Constants;
@@ -119,7 +120,7 @@ public class ModPlayerDataRegistry implements IPlayerDataRegistry {
                 list.add(load(UUID.fromString(files.replace(".dat", ""))));
             }
         }
-
+        ArrowEvents.ALL_PLAYER_DATA_LOADED_EVENT.invoker().loaded(list);
         return list;
     }
 

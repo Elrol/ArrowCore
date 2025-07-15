@@ -11,6 +11,8 @@ import java.util.TimerTask;
 public class _ModMenu extends SimpleGui {
 
     protected Timer timer;
+    public final String menuName;
+    boolean canClose = true;
 
     /**
      * Constructs a new simple container gui for the supplied player.
@@ -20,15 +22,25 @@ public class _ModMenu extends SimpleGui {
      * @param manipulatePlayerSlots if <code>true</code> the players inventory
      *                              will be treated as slots of this gui
      */
-    public _ModMenu(ScreenHandlerType<?> type, ServerPlayerEntity player, boolean manipulatePlayerSlots) {
+    public _ModMenu(String menuName, ScreenHandlerType<?> type, ServerPlayerEntity player, boolean manipulatePlayerSlots) {
         super(type, player, manipulatePlayerSlots);
+        this.menuName = menuName;
     }
 
     @Override
     public void onClose() {
-        super.onClose();
         if(timer != null) cancelTimer();
-        MenuCloseCallback.EVENT.invoker().onClose(player);
+        MenuCloseCallback.EVENT.invoker().onClose(this);
+        super.onClose();
+    }
+
+    public void setCanClose(boolean canClose) {
+        this.canClose = canClose;
+    }
+
+    @Override
+    public boolean canPlayerClose() {
+        return canClose;
     }
 
     public void createTimer(TimerTask task, long delay) {

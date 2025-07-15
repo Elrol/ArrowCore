@@ -7,6 +7,8 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -79,13 +81,18 @@ public class DevMenu extends _PageMenuBase {
     }
 
     @Override
-    public String getMenuName() {
+    public @NotNull String getMenuName() {
         return "dev";
     }
 
     @Override
     public char getMenuUnicode() {
         return '≇';
+    }
+
+    @Override
+    public @NotNull Identifier getMenuFont() {
+        return Identifier.of("arrowcore", "default");
     }
 
     @FunctionalInterface

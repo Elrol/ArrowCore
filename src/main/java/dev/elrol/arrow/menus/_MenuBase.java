@@ -13,8 +13,12 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
+
+import javax.annotation.Nonnull;
 
 public abstract class _MenuBase {
     public ServerPlayerEntity player;
@@ -24,8 +28,11 @@ public abstract class _MenuBase {
     public <T extends ScreenHandler> _MenuBase(ServerPlayerEntity player, ScreenHandlerType<T> type) {
         this.player = player;
         this.data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player.getUuid());
-        this.menu = new _ModMenu(type, player, false);
-        this.menu.setTitle(Text.literal("七七七七七七七七" + getMenuUnicode()).formatted(Formatting.WHITE));
+        this.menu = new  _ModMenu(getMenuName(), type, player, false);
+
+        Style style = Style.EMPTY.withFont(getMenuFont());
+
+        this.menu.setTitle(Text.literal("七七七七七七七七" + getMenuUnicode()).setStyle(style).formatted(Formatting.WHITE));
         this.menu.onClose();
     }
 
@@ -113,6 +120,11 @@ public abstract class _MenuBase {
         player.getServerWorld().playSound(null, player.getBlockPos(), SoundEvents.UI_BUTTON_CLICK.value(), SoundCategory.MASTER, 1.0f, 1.0f);
     }
 
+    @Nonnull
     public abstract String getMenuName();
+
     public abstract char getMenuUnicode();
+
+    @Nonnull
+    public abstract Identifier getMenuFont();
 }

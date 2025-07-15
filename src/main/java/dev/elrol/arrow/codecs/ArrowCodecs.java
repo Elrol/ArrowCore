@@ -1,8 +1,9 @@
 package dev.elrol.arrow.codecs;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3i;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -10,9 +11,14 @@ import java.nio.ByteBuffer;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 
 public class ArrowCodecs {
+
+    public static final Codec<BlockPos> BLOCK_POS_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            Codec.INT.fieldOf("x").forGetter(Vec3i::getX),
+            Codec.INT.fieldOf("y").forGetter(Vec3i::getY),
+            Codec.INT.fieldOf("z").forGetter(Vec3i::getZ)
+    ).apply(instance, BlockPos::new));
 
     public static final Codec<byte[]> BYTE_ARRAY_CODEC = Codec.BYTE_BUFFER.xmap(
             ByteBuffer::array,

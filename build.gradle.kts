@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "dev.elrol.arrow"
-version = "1.6.10"
+version = "1.7.5"
 
 architectury {
     platformSetupLoomIde()
@@ -47,7 +47,7 @@ dependencies {
     modImplementation("eu.pb4:polymer-core:0.9.18+1.21.1")
     modImplementation("eu.pb4:polymer-resource-pack:0.9.18+1.21.1")
     modImplementation("eu.pb4:polymer-autohost:0.9.18+1.21.1")
-    modImplementation("de.tomalbrc:filament:0.14.4+1.21.1")
+    modImplementation("de.tomalbrc:filament:0.14.7+1.21.1")
 
     modImplementation("net.fabricmc:fabric-language-kotlin:1.12.3+kotlin.2.0.21")
     modImplementation("eu.pb4:sgui:1.6.1+1.21.1")

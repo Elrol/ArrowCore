@@ -19,33 +19,6 @@
     {"type": "bitmap", "file": "arrowcore:numbers/15.png",    "ascent": 8, "height": 8,  "chars": ["⠎"]},
 
     {"type": "bitmap", "file": "arrowcore:gui/dev.png",              "ascent": 14,"height": 256,"chars": ["≇"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/cherry_blossum_45.png","ascent": 14,"height": 256,"chars": ["ㇺ"]},
-
-    {"type": "bitmap", "file": "arrowcommands:gui/main.png",             "ascent": 14,"height": 256,"chars": ["≀"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/settings.png",         "ascent": 14,"height": 256,"chars": ["≁"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/daycare.png",          "ascent": 14,"height": 256,"chars": ["≂"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/main_color.png",       "ascent": 14,"height": 256,"chars": ["≃"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/back_color.png",       "ascent": 14,"height": 256,"chars": ["≄"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/poke_select_1.png",    "ascent": 14,"height": 256,"chars": ["≅"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/poke_select_2.png",    "ascent": 14,"height": 256,"chars": ["≆"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/shop.png",             "ascent": 14,"height": 256,"chars": ["≈"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/item_shop.png",        "ascent": 14,"height": 256,"chars": ["≉"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/item_select.png",      "ascent": 14,"height": 256,"chars": ["≊"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/shopping_cart.png",    "ascent": 14,"height": 256,"chars": ["≋"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/customizer.png",       "ascent": 14,"height": 256,"chars": ["≌"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_selection.png", "ascent": 14,"height": 256,"chars": ["≍"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_shiny.png",     "ascent": 14,"height": 256,"chars": ["≎"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_ivs.png",       "ascent": 14,"height": 256,"chars": ["≏"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_evs.png",       "ascent": 14,"height": 256,"chars": ["≐"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_ability.png",   "ascent": 14,"height": 256,"chars": ["≑"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_nature.png",    "ascent": 14,"height": 256,"chars": ["≒"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_gender.png",    "ascent": 14,"height": 256,"chars": ["≓"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/custom_pokeball.png",  "ascent": 14,"height": 256,"chars": ["≔"]},
-    {"type": "bitmap", "file": "arrowcommands:gui/confirm.png",          "ascent": 14,"height": 256,"chars": ["≕"]},
-
-    {"type": "bitmap", "file": "arrowcommands:gui/crate.png",            "ascent": 14,"height": 256,"chars": ["ꔀ"]},
-
-    {"type": "bitmap", "file": "arrowcommands:font/pokedollar.png",      "ascent": 8, "height": 8,  "chars": ["₽"]},
 
     {"type": "bitmap", "file": "arrowcore:ranks/staff/owner.png",    "ascent": 8, "height": 8,  "chars": [""]},
     {"type": "bitmap", "file": "arrowcore:ranks/staff/dev.png",      "ascent": 8, "height": 8,  "chars": [""]},
