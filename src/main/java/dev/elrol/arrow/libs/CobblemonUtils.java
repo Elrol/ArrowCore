@@ -8,12 +8,16 @@ import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore;
 import com.cobblemon.mod.common.api.storage.pc.PCStore;
+import com.cobblemon.mod.common.item.PokemonItem;
 import com.cobblemon.mod.common.pokemon.Gender;
 import com.cobblemon.mod.common.pokemon.IVs;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.pokemon.Species;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -62,9 +66,7 @@ public class CobblemonUtils {
         return CobblemonUtils.getParty(player).get(slot);
     }
 
-    public static GuiElementBuilder addPokeStatElement(GuiElementBuilder original, @Nullable Pokemon pokemon) {
-        if(pokemon == null) return original;
-        //DaycareUtils.getEggStats(pokemon, pokemon);
+    public static List<Text> getPokeStats(Pokemon pokemon) {
         List<Text> lore = new ArrayList<Text>(Collections.singletonList(ModTranslations.info("species").formatted(Formatting.GREEN).append(pokemon.getSpecies().getTranslatedName().formatted(Formatting.GRAY))));
 
         lore.add(ModTranslations.info("gender").formatted(Formatting.DARK_PURPLE).append(Text.literal(pokemon.getGender().name()).formatted(Formatting.GRAY)));
@@ -91,7 +93,23 @@ public class CobblemonUtils {
         lore.add(ModTranslations.info("special_attack").formatted(Formatting.GREEN).append(Text.literal("" + ivs.get(Stats.SPECIAL_ATTACK)).formatted(Formatting.GRAY)));
         lore.add(ModTranslations.info("special_defense").formatted(Formatting.BLUE).append(Text.literal("" + ivs.get(Stats.SPECIAL_DEFENCE)).formatted(Formatting.GRAY)));
         lore.add(ModTranslations.info("speed").formatted(Formatting.LIGHT_PURPLE).append(Text.literal("" + ivs.get(Stats.SPEED)).formatted(Formatting.GRAY)));
-        return original.setLore(lore);
+
+        return lore;
+    }
+
+    public static ItemStack makePokeStatItemStack(Pokemon pokemon) {
+        return addPokeStatItemStack(PokemonItem.from(pokemon), pokemon);
+    }
+
+    public static ItemStack addPokeStatItemStack(ItemStack stack, Pokemon pokemon) {
+        stack.set(DataComponentTypes.LORE, new LoreComponent(getPokeStats(pokemon)));
+        return stack;
+    }
+
+    public static GuiElementBuilder addPokeStatElement(GuiElementBuilder original, @Nullable Pokemon pokemon) {
+        if(pokemon == null) return original;
+        //DaycareUtils.getEggStats(pokemon, pokemon);
+        return original.setLore(getPokeStats(pokemon));
     }
 
     public static boolean hasDestinyKnot(Pokemon... pokemon) {
