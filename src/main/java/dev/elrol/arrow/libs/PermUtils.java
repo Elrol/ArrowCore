@@ -42,20 +42,30 @@ public class PermUtils {
 
     public static Tristate hasPerm(ServerPlayerEntity player, String perm, String node) {
         CachedPermissionData permData = getUser(player).getCachedData().getPermissionData(QueryOptions.nonContextual());
-        String op = perm + ".*";
         String permNode = perm + "." + node;
         if(ArrowCore.CONFIG.isDebug) {
-            ArrowCore.LOGGER.warn("Op perm check: {}", op);
             ArrowCore.LOGGER.warn("PermNode check: {}", permNode);
         }
-        Tristate state = Tristate.UNDEFINED;
+        Tristate state;
 
-        if(permData.checkPermission(op).asBoolean()) {
+        if(permData.checkPermission(permNode).asBoolean()) {
+            state = Tristate.TRUE;
+        } else {
+            // TODO get OP perm check fixed
+            int lastIndex = perm.lastIndexOf(".");
+            if(lastIndex == -1) {
+                state = permData.
+            } else {
+                state = hasPerm(player, perm.substring(0, lastIndex), "*");
+            }
+        }
+
+        if(hasPerm(player, perm, "*").asBoolean()) {
             state = Tristate.TRUE;
             if(ArrowCore.CONFIG.isDebug)
                 ArrowCore.LOGGER.warn("Is Op");
         } else {
-            state = permData.checkPermission(permNode);
+            state = ;
         }
         if(ArrowCore.CONFIG.isDebug)
             ArrowCore.LOGGER.warn("Value: {}", state);
