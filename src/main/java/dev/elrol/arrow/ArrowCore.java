@@ -2,6 +2,7 @@ package dev.elrol.arrow;
 
 import de.tomalbrc.filament.api.FilamentLoader;
 import dev.elrol.arrow.api.events.FirstJoinCallback;
+import dev.elrol.arrow.api.events.MenuCloseCallback;
 import dev.elrol.arrow.data.*;
 import dev.elrol.arrow.api.IArrowAPI;
 import dev.elrol.arrow.api.events.ArrowEvents;
@@ -9,10 +10,11 @@ import dev.elrol.arrow.api.registries.*;
 import dev.elrol.arrow.commands.DevCommand;
 import dev.elrol.arrow.commands.RefreshCommand;
 import dev.elrol.arrow.config.ArrowConfig;
-import dev.elrol.arrow.libs.Constants;
+import dev.elrol.arrow.libs.ArrowCoreConstants;
 import dev.elrol.arrow.libs.MenuUtils;
 import dev.elrol.arrow.menus.DevMenu;
 import dev.elrol.arrow.registries.CoreMenuItems;
+import dev.elrol.arrow.registries.PlayerDataTypes;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
@@ -26,6 +28,7 @@ import net.kyori.adventure.text.TextComponent;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ArrowCore implements ModInitializer {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(Constants.MODID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(ArrowCoreConstants.MODID);
     public static ArrowConfig CONFIG = new ArrowConfig();
     public static final IArrowAPI INSTANCE = new ArrowAPI();
     public static final CoreMenuItems MENU_ITEMS = new CoreMenuItems();
@@ -50,13 +53,15 @@ public class ArrowCore implements ModInitializer {
     }
 
     static {
-        registerMod(Constants.MODID);
+        registerMod(ArrowCoreConstants.MODID);
     }
 
     @Override
     public void onInitialize() {
         if(FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) return;
         CONFIG = CONFIG.load();
+
+        PlayerDataTypes.register(PlayerDataCore.DATA_ID, PlayerDataCore.MAP_CODEC);
 
         registerCommands();
         registerEvents();
@@ -84,6 +89,8 @@ public class ArrowCore implements ModInitializer {
 
     private void registerEvents() {
 
+        MenuCloseCallback.EVENT.register((menu -> ActionResult.PASS));
+
         ServerMessageEvents.CHAT_MESSAGE.register(((message, sender, params) -> {
             //sender.sendMessage(Text.literal("This is the chat message"));
         }));
@@ -95,15 +102,26 @@ public class ArrowCore implements ModInitializer {
         IEventRegistry eventRegistry = INSTANCE.getEventRegistry();
         IEconomyRegistry economyRegistry = INSTANCE.getEconomyRegistry();
 
+        eventRegistry.registerEvent(() -> ArrowEvents.PLAYER_DATA_LOADED_EVENT.register((player, data) -> {
+
+        }));
+
+        eventRegistry.registerEvent(() -> ArrowEvents.ALL_PLAYER_DATA_LOADED_EVENT.register(list -> {
+            list.forEach(data -> {
+                PlayerDataCore corePlayerData = data.get(new PlayerDataCore());
+                data.put(corePlayerData);
+            });
+        }));
+
         ServerLifecycleEvents.SERVER_STARTING.register((server) -> eventRegistry.register());
 
         eventRegistry.registerEvent(() -> ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
-            Constants.SERVER_DATA_DIR = new File(Constants.ARROW_DATA_DIR, "/server_data");
-            ArrowCore.LOGGER.warn("Server Started: {}", Constants.SERVER_DATA_DIR);
-            if(Constants.SERVER_DATA_DIR.mkdirs()) {
-                ArrowCore.LOGGER.warn("Server Data Folder created: {}", Constants.SERVER_DATA_DIR);
+            ArrowCoreConstants.SERVER_DATA_DIR = new File(ArrowCoreConstants.ARROW_DATA_DIR, "/server_data");
+            ArrowCore.LOGGER.warn("Server Started: {}", ArrowCoreConstants.SERVER_DATA_DIR);
+            if(ArrowCoreConstants.SERVER_DATA_DIR.mkdirs()) {
+                ArrowCore.LOGGER.warn("Server Data Folder created: {}", ArrowCoreConstants.SERVER_DATA_DIR);
             } else {
-                ArrowCore.LOGGER.info("Server Data Folder Found: {}", Constants.SERVER_DATA_DIR);
+                ArrowCore.LOGGER.info("Server Data Folder Found: {}", ArrowCoreConstants.SERVER_DATA_DIR);
             }
 
             MENU_ITEMS.register();
@@ -172,7 +190,7 @@ public class ArrowCore implements ModInitializer {
                 FirstJoinCallback.EVENT.invoker().welcome(player);
             }
 
-            PlayerData data = registry.getPlayerData(player);
+            ArrowPlayerData data = registry.load(player);
             PlayerDataCore coreData = data.get(new PlayerDataCore());
 
             coreData.username = player.getName();
@@ -191,7 +209,7 @@ public class ArrowCore implements ModInitializer {
         eventRegistry.registerEvent(() -> ServerPlayConnectionEvents.DISCONNECT.register((networkHandler, server) -> {
             ServerPlayerEntity player = networkHandler.player;
             IPlayerDataRegistry playerDataRegistry = INSTANCE.getPlayerDataRegistry();
-            PlayerData data = playerDataRegistry.getPlayerData(player);
+            ArrowPlayerData data = playerDataRegistry.getPlayerData(player);
             PlayerDataCore coreData = data.get(new PlayerDataCore());
 
             coreData.teleportHistory.clear();

@@ -46,30 +46,7 @@ public class PermUtils {
         if(ArrowCore.CONFIG.isDebug) {
             ArrowCore.LOGGER.warn("PermNode check: {}", permNode);
         }
-        Tristate state;
-
-        if(permData.checkPermission(permNode).asBoolean()) {
-            state = Tristate.TRUE;
-        } else {
-            // TODO get OP perm check fixed
-            int lastIndex = perm.lastIndexOf(".");
-            if(lastIndex == -1) {
-                state = permData.
-            } else {
-                state = hasPerm(player, perm.substring(0, lastIndex), "*");
-            }
-        }
-
-        if(hasPerm(player, perm, "*").asBoolean()) {
-            state = Tristate.TRUE;
-            if(ArrowCore.CONFIG.isDebug)
-                ArrowCore.LOGGER.warn("Is Op");
-        } else {
-            state = ;
-        }
-        if(ArrowCore.CONFIG.isDebug)
-            ArrowCore.LOGGER.warn("Value: {}", state);
-        return state;
+        return permData.checkPermission(permNode);
     }
 
 }

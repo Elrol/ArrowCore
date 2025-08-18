@@ -10,9 +10,9 @@ import dev.elrol.arrow.api.registries.IEconomyRegistry;
 import dev.elrol.arrow.api.registries.IPlayerDataRegistry;
 import dev.elrol.arrow.data.Account;
 import dev.elrol.arrow.data.Currency;
-import dev.elrol.arrow.data.PlayerData;
+import dev.elrol.arrow.data.ArrowPlayerData;
 import dev.elrol.arrow.data.PlayerDataCore;
-import dev.elrol.arrow.libs.Constants;
+import dev.elrol.arrow.libs.ArrowCoreConstants;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.MutableText;
@@ -75,7 +75,7 @@ public class ModEconomyRegistry implements IEconomyRegistry {
     @Override
     public void changeAccount(UUID uuid, Currency currency, AccountFunction function) {
         if(currency == null) currency = primary;
-        PlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(uuid);
+        ArrowPlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(uuid);
         PlayerDataCore coreData = data.get(new PlayerDataCore());
         Account account = function.change(coreData.getAccount(currency));
         coreData.putAccount(currency, account);
@@ -90,7 +90,7 @@ public class ModEconomyRegistry implements IEconomyRegistry {
     @Override
     public Account getAccount(UUID uuid, Currency currency) {
         if(currency == null) currency = primary;
-        PlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(uuid);
+        ArrowPlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(uuid);
         PlayerDataCore coreData = data.get(new PlayerDataCore());
         Account account = coreData.getAccount(currency);
         data.put(coreData);
@@ -274,7 +274,7 @@ public class ModEconomyRegistry implements IEconomyRegistry {
             ArrowCore.LOGGER.warn("Economy Config Folder Created");
 
         File[] files = configDir.listFiles();
-        Gson gson = Constants.makeGSON();
+        Gson gson = ArrowCoreConstants.makeGSON();
 
         if(files != null) {
             for (File file : files) {
@@ -313,7 +313,7 @@ public class ModEconomyRegistry implements IEconomyRegistry {
             try(FileWriter writer = new FileWriter(file)) {
                 DataResult<JsonElement> json = Currency.CODEC.encodeStart(JsonOps.INSTANCE, currency);
                 if(json.isSuccess()) {
-                    Constants.makeGSON().toJson(json.getOrThrow(), writer);
+                    ArrowCoreConstants.makeGSON().toJson(json.getOrThrow(), writer);
                 }
             } catch (IOException e) {
                 ArrowCore.LOGGER.error(e.getMessage());

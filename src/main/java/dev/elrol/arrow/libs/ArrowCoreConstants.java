@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class Constants {
+public class ArrowCoreConstants {
 
     public static String MODID = "arrowcore";
     public static final File ARROW_DATA_DIR = new File(FabricLoader.getInstance().getGameDir().toFile(), "/arrow_data");

@@ -2,7 +2,6 @@ package dev.elrol.arrow.data;
 
 import com.google.gson.GsonBuilder;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.elrol.arrow.ArrowCore;
 import net.minecraft.registry.RegistryKey;
@@ -11,7 +10,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
 
 import java.util.Objects;
 
@@ -97,7 +95,7 @@ public class ExactLocation {
 
     public void teleport(ServerPlayerEntity player, boolean log){
         if(log) {
-            PlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player);
+            ArrowPlayerData data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player);
             PlayerDataCore coreData = data.get(new PlayerDataCore());
             coreData.logTeleport(player);
             data.put(coreData);

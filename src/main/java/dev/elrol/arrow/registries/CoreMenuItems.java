@@ -2,8 +2,7 @@ package dev.elrol.arrow.registries;
 
 import dev.elrol.arrow.ArrowCore;
 import dev.elrol.arrow.api.registries.IItemRegistry;
-import dev.elrol.arrow.libs.Constants;
-import dev.elrol.arrow.libs.ModUtils;
+import dev.elrol.arrow.libs.ArrowCoreConstants;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
@@ -28,7 +27,7 @@ public class CoreMenuItems implements IItemRegistry {
 
     @Override
     public String getModID() {
-        return Constants.MODID;
+        return ArrowCoreConstants.MODID;
     }
 
 }

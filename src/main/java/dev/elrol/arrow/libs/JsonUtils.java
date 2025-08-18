@@ -11,7 +11,7 @@ import java.io.*;
 public class JsonUtils {
 
     public static void saveToJson(File dir, String name, Object obj) {
-        Gson GSON = Constants.makeGSON();
+        Gson GSON = ArrowCoreConstants.makeGSON();
         File file = new File(dir, name);
 
         if(dir.mkdirs()) {
@@ -47,7 +47,7 @@ public class JsonUtils {
         TypeToken<T> type = new TypeToken<>(){};
         if(file.exists()) {
             try(FileReader reader = new FileReader(file)) {
-                Gson GSON = Constants.makeGSON();
+                Gson GSON = ArrowCoreConstants.makeGSON();
                 T obj = GSON.fromJson(reader, (Class<T>) defaultObject.getClass());
 
                 if(obj != null) {

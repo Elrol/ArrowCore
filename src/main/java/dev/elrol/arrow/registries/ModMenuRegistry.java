@@ -42,7 +42,9 @@ public class ModMenuRegistry implements IMenuRegistry {
             throw new RuntimeException("The class " + name + " was not a valid Menu class");
         } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException |
                  IllegalAccessException e) {
-            throw new RuntimeException(e);
+            Throwable actualException = e.getCause();
+            actualException.printStackTrace();
+            return null;
         }
     }
 

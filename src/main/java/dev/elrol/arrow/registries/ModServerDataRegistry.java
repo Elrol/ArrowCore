@@ -9,12 +9,10 @@ import dev.elrol.arrow.ArrowCore;
 import dev.elrol.arrow.api.data.IServerData;
 import dev.elrol.arrow.api.events.ArrowEvents;
 import dev.elrol.arrow.api.registries.IServerDataRegistry;
-import dev.elrol.arrow.libs.Constants;
+import dev.elrol.arrow.libs.ArrowCoreConstants;
 import dev.elrol.arrow.libs.JsonUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +21,8 @@ public class ModServerDataRegistry implements IServerDataRegistry {
     Map<String, JsonElement> serverDataMap = new HashMap<>();
 
     public void load() {
-        if(Constants.SERVER_DATA_DIR != null && Constants.SERVER_DATA_DIR.exists()){
-            ModServerDataRegistry tempData = JsonUtils.loadFromJson(Constants.SERVER_DATA_DIR, "server_data.dat", this);
+        if(ArrowCoreConstants.SERVER_DATA_DIR != null && ArrowCoreConstants.SERVER_DATA_DIR.exists()){
+            ModServerDataRegistry tempData = JsonUtils.loadFromJson(ArrowCoreConstants.SERVER_DATA_DIR, "server_data.dat", this);
             serverDataMap = tempData.serverDataMap;
             save();
             ArrowCore.LOGGER.info("Server Data Loaded Successfully");
@@ -33,7 +31,7 @@ public class ModServerDataRegistry implements IServerDataRegistry {
     }
 
     public void save() {
-        JsonUtils.saveToJson(Constants.SERVER_DATA_DIR, "server_data.dat", this);
+        JsonUtils.saveToJson(ArrowCoreConstants.SERVER_DATA_DIR, "server_data.dat", this);
     }
 
     @NonNull

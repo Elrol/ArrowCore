@@ -2,8 +2,7 @@ package dev.elrol.arrow.libs;
 
 import dev.elrol.arrow.ArrowCore;
 import dev.elrol.arrow.config.ArrowConfig;
-import dev.elrol.arrow.data.PlayerData;
-import dev.elrol.arrow.registries.ModPlayerDataRegistry;
+import dev.elrol.arrow.data.ArrowPlayerData;
 
 import java.sql.*;
 import java.util.UUID;
@@ -79,8 +78,8 @@ public class DatabaseUtils {
      * Starts Connection on call
      * @param uuid The player's UUID
      */
-    public static PlayerData loadPlayerData(UUID uuid) {
-        PlayerData data = null;
+    public static ArrowPlayerData loadPlayerData(UUID uuid) {
+        ArrowPlayerData data = null;
         if(uuid == null) return null;
         try {
             startConnection();
@@ -89,9 +88,9 @@ public class DatabaseUtils {
             ResultSet set = statement.getResultSet();
 
             if(set.next()) {
-                data = Constants.makeGSON().fromJson(set.getString("data"), PlayerData.class);
+                data = ArrowCoreConstants.makeGSON().fromJson(set.getString("data"), ArrowPlayerData.class);
             } else {
-                data = new PlayerData(uuid);
+                data = new ArrowPlayerData(uuid);
                 savePlayerData(uuid, data);
             }
 
@@ -117,7 +116,7 @@ public class DatabaseUtils {
      * @param uuid
      * @param data
      */
-    public static void savePlayerData(UUID uuid, PlayerData data) {
+    public static void savePlayerData(UUID uuid, ArrowPlayerData data) {
         /**
         try {
             startConnection();

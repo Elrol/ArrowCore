@@ -1,6 +1,6 @@
 package dev.elrol.arrow.api.events;
 
-import dev.elrol.arrow.data.PlayerData;
+import dev.elrol.arrow.data.ArrowPlayerData;
 import dev.elrol.arrow.registries.ModServerDataRegistry;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
@@ -42,17 +42,17 @@ public final class ArrowEvents {
 
     @FunctionalInterface
     public interface AllPlayerDataLoaded {
-        void loaded(List<PlayerData> playerDataList);
+        void loaded(List<ArrowPlayerData> playerDataList);
     }
 
     @FunctionalInterface
     public interface PlayerDataLoaded {
-        void loaded(ServerPlayerEntity player, PlayerData data);
+        void loaded(ServerPlayerEntity player, ArrowPlayerData data);
     }
 
     @FunctionalInterface
     public interface PlayerDataUnloading {
-        void unloading(ServerPlayerEntity player, PlayerData data);
+        void unloading(ServerPlayerEntity player, ArrowPlayerData data);
     }
 
     @FunctionalInterface

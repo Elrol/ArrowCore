@@ -1,8 +1,10 @@
 package dev.elrol.arrow.data;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.elrol.arrow.api.data.IPlayerData;
+import dev.elrol.arrow.registries.PlayerDataTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextCodecs;
@@ -11,17 +13,30 @@ import java.util.*;
 
 public class PlayerDataCore implements IPlayerData {
 
-public static final Codec<PlayerDataCore> CODEC;
+    public static final Codec<PlayerDataCore> CODEC;
+    public static final MapCodec<PlayerDataCore> MAP_CODEC;
+    public static final String DATA_ID = "core";
 
     static {
         CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                TextCodecs.CODEC.fieldOf("username").forGetter(data -> {
-                    if(data.username == null) return Text.empty();
-                    return data.username;
-                }),
-                Codec.STRING.listOf().fieldOf("menuHistory").forGetter(data -> data.menuHistory),
-                ExactLocation.CODEC.listOf().fieldOf("teleportHistory").forGetter(core -> core.teleportHistory),
-                Codec.unboundedMap(Codec.STRING, Account.CODEC).fieldOf("account").forGetter(data -> data.accounts)
+                TextCodecs.CODEC.optionalFieldOf("username", Text.empty()).forGetter(data -> data.username),
+                Codec.STRING.listOf().optionalFieldOf("menuHistory", List.of()).forGetter(data -> data.menuHistory),
+                ExactLocation.CODEC.listOf().optionalFieldOf("teleportHistory", List.of()).forGetter(core -> core.teleportHistory),
+                Codec.unboundedMap(Codec.STRING, Account.CODEC).optionalFieldOf("account", Map.of()).forGetter(data -> data.accounts)
+        ).apply(instance, (username, menuHistory, teleportHistory, account) -> {
+            PlayerDataCore data = new PlayerDataCore();
+            data.username = username;
+            data.menuHistory = new ArrayList<>(menuHistory);
+            data.teleportHistory = new ArrayList<>(teleportHistory);
+            data.accounts.putAll(account);
+            return data;
+        }));
+
+        MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                TextCodecs.CODEC.optionalFieldOf("username", Text.empty()).forGetter(data -> data.username),
+                Codec.STRING.listOf().optionalFieldOf("menuHistory", List.of()).forGetter(data -> data.menuHistory),
+                ExactLocation.CODEC.listOf().optionalFieldOf("teleportHistory", List.of()).forGetter(core -> core.teleportHistory),
+                Codec.unboundedMap(Codec.STRING, Account.CODEC).optionalFieldOf("account", Map.of()).forGetter(data -> data.accounts)
         ).apply(instance, (username, menuHistory, teleportHistory, account) -> {
             PlayerDataCore data = new PlayerDataCore();
             data.username = username;
@@ -39,7 +54,7 @@ public static final Codec<PlayerDataCore> CODEC;
 
     @Override
     public String getDataID() {
-        return "core";
+        return DATA_ID;
     }
 
     public void logTeleport(ServerPlayerEntity player) {
@@ -74,5 +89,16 @@ public static final Codec<PlayerDataCore> CODEC;
     @SuppressWarnings({"unchecked"})
     public <T extends IPlayerData> Codec<T> getCodec() {
         return (Codec<T>) CODEC;
+    }
+
+    @Override
+    @SuppressWarnings({"unchecked"})
+    public <T extends IPlayerData> MapCodec<T> getMapCodec() {
+        return (MapCodec<T>) MAP_CODEC;
+    }
+
+    @Override
+    public PlayerDataType<?> getType() {
+        return PlayerDataTypes.get(getDataID());
     }
 }

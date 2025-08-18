@@ -24,7 +24,7 @@ public class DevMenu extends _PageMenuBase {
     private final GuiElementBuilder eggTest;
     private final GuiElementBuilder slimeTest;
 
-    public <T extends ScreenHandler> DevMenu(ServerPlayerEntity player) {
+    public DevMenu(ServerPlayerEntity player) {
         super(player);
 
         goldTest = MenuUtils.item(Items.GOLD_INGOT, 1, "Get 100$");

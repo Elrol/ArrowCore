@@ -1,7 +1,7 @@
 package dev.elrol.arrow.menus;
 
 import dev.elrol.arrow.ArrowCore;
-import dev.elrol.arrow.data.PlayerData;
+import dev.elrol.arrow.data.ArrowPlayerData;
 import dev.elrol.arrow.data.PlayerDataCore;
 import dev.elrol.arrow.libs.MenuUtils;
 import dev.elrol.arrow.libs.ModTranslations;
@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 
 public abstract class _MenuBase {
     public ServerPlayerEntity player;
-    public PlayerData data;
+    public ArrowPlayerData data;
     public _ModMenu menu;
 
     public <T extends ScreenHandler> _MenuBase(ServerPlayerEntity player, ScreenHandlerType<T> type) {
