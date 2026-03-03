@@ -202,6 +202,13 @@
   "arrow.menu.item.page.next": "Next",
   "arrow.menu.item.page.previous": "Previous",
 
-  "item.arrowcore.gui_back_button"      : "Back"
+  "item.arrowcore.gui_back_button"      : "Back",
 
+  "arrow.message.got_money_1":          "You have received ",
+  "arrow.message.got_money_2":          " you now have ",
+  "arrow.message.got_money_3":          "!",
+
+  "arrow.error.lost_money_1":           "You have lost ",
+  "arrow.error.lost_money_2":           " you now have ",
+  "arrow.error.lost_money_3":           "!"
 }

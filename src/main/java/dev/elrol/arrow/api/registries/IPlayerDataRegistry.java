@@ -14,6 +14,9 @@ public interface IPlayerDataRegistry {
     ArrowPlayerData getPlayerData(ServerPlayerEntity player);
     ArrowPlayerData getPlayerData(UUID uuid);
 
+    void updatePlayerData(ServerPlayerEntity player, ArrowPlayerData playerData);
+    void updatePlayerData(UUID uuid, ArrowPlayerData playerData);
+
     void save(UUID uuid, ArrowPlayerData data);
     void save(ServerPlayerEntity player);
     void save(UUID uuid);

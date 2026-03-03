@@ -92,7 +92,7 @@ public class DevMenu extends _PageMenuBase {
 
     @Override
     public @NotNull Identifier getMenuFont() {
-        return Identifier.of("arrowcore", "default");
+        return Identifier.of("arrow", "core");
     }
 
     @FunctionalInterface

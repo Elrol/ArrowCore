@@ -13,26 +13,11 @@ import java.util.*;
 
 public class PlayerDataCore implements IPlayerData {
 
-    public static final Codec<PlayerDataCore> CODEC;
-    public static final MapCodec<PlayerDataCore> MAP_CODEC;
+    public static final MapCodec<PlayerDataCore> CODEC;
     public static final String DATA_ID = "core";
 
     static {
-        CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                TextCodecs.CODEC.optionalFieldOf("username", Text.empty()).forGetter(data -> data.username),
-                Codec.STRING.listOf().optionalFieldOf("menuHistory", List.of()).forGetter(data -> data.menuHistory),
-                ExactLocation.CODEC.listOf().optionalFieldOf("teleportHistory", List.of()).forGetter(core -> core.teleportHistory),
-                Codec.unboundedMap(Codec.STRING, Account.CODEC).optionalFieldOf("account", Map.of()).forGetter(data -> data.accounts)
-        ).apply(instance, (username, menuHistory, teleportHistory, account) -> {
-            PlayerDataCore data = new PlayerDataCore();
-            data.username = username;
-            data.menuHistory = new ArrayList<>(menuHistory);
-            data.teleportHistory = new ArrayList<>(teleportHistory);
-            data.accounts.putAll(account);
-            return data;
-        }));
-
-        MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+        CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 TextCodecs.CODEC.optionalFieldOf("username", Text.empty()).forGetter(data -> data.username),
                 Codec.STRING.listOf().optionalFieldOf("menuHistory", List.of()).forGetter(data -> data.menuHistory),
                 ExactLocation.CODEC.listOf().optionalFieldOf("teleportHistory", List.of()).forGetter(core -> core.teleportHistory),
@@ -87,14 +72,8 @@ public class PlayerDataCore implements IPlayerData {
 
     @Override
     @SuppressWarnings({"unchecked"})
-    public <T extends IPlayerData> Codec<T> getCodec() {
-        return (Codec<T>) CODEC;
-    }
-
-    @Override
-    @SuppressWarnings({"unchecked"})
-    public <T extends IPlayerData> MapCodec<T> getMapCodec() {
-        return (MapCodec<T>) MAP_CODEC;
+    public <T extends IPlayerData> MapCodec<T> getCodec() {
+        return (MapCodec<T>) CODEC;
     }
 
     @Override

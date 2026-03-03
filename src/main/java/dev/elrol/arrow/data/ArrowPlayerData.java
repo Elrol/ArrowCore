@@ -9,10 +9,11 @@ import dev.elrol.arrow.api.data.IPlayerData;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class ArrowPlayerData {
-
 
     public static final Codec<ArrowPlayerData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.unboundedMap(Codec.STRING, IPlayerData.PLAYER_DATA_CODEC).fieldOf("data").forGetter(data -> {
@@ -47,7 +48,7 @@ public class ArrowPlayerData {
     @NotNull
     @SuppressWarnings("unchecked")
     public <T extends IPlayerData> T get(@NotNull T defaultObject) {
-        Codec<T> codec = defaultObject.getCodec();
+        Codec<T> codec = (Codec<T>) defaultObject.getCodec().codec();
         if(codec != null) {
             String id = defaultObject.getDataID();
             if(newData == null) newData = new HashMap<>();
@@ -68,8 +69,9 @@ public class ArrowPlayerData {
         return defaultObject;
     }
 
+    @SuppressWarnings("unchecked")
     public <T extends IPlayerData> boolean put(T dataObject, boolean save){
-        Codec<T> codec = dataObject.getCodec();
+        Codec<T> codec = (Codec<T>) dataObject.getCodec().codec();
         if(codec == null) {
             if(ArrowCore.CONFIG.isDebug)
                 ArrowCore.LOGGER.error("Codec was null");

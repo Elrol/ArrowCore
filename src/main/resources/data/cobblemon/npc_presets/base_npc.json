@@ -7,9 +7,9 @@
     "allowProjectileHits": false,
     "ai": [
       {
-        "type": "apply_presets",
-        "presets": [
-          "cobblemon:looks",
+        "type": "apply_behaviours",
+        "behaviours": [
+          "cobblemon:looks_at_players",
           "cobblemon:chats"
         ]
       }  

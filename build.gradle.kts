@@ -3,13 +3,18 @@ import org.codehaus.groovy.runtime.DefaultGroovyMethods.mixin
 plugins {
     id("java")
     id("architectury-plugin") version("3.4-SNAPSHOT")
-    id("dev.architectury.loom") version("1.7-SNAPSHOT")
-
-    kotlin("jvm") version "1.9.23"
+    id("dev.architectury.loom") version("1.13-SNAPSHOT")
+    kotlin("jvm") version "2.2.0"
 }
 
+val minecraftVersion: String by project
+val fabricAPIVersion: String by project
+val fabricLoaderVersion: String by project
+val arrowCoreVersion: String by project
+val cobblemonVersion: String by project
+
 group = "dev.elrol.arrow"
-version = "1.8.6"
+version = arrowCoreVersion
 
 architectury {
     platformSetupLoomIde()
@@ -34,24 +39,29 @@ repositories {
     maven(url = "https://maven.impactdev.net/repository/development/")
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
     maven(url = "https://jitpack.io")
+    maven(url = "https://repo.phoenix616.dev")
+    maven(url = "https://maven.cobblemon.com")
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-metadata-jvm:2.2.0")
+
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.13.8+kotlin.2.3.0")
+
     minecraft ("com.mojang:minecraft:1.21.1")
     mappings ("net.fabricmc:yarn:1.21.1+build.3:v2")
-    modImplementation("net.fabricmc:fabric-loader:0.16.10")
+    modImplementation("net.fabricmc:fabric-loader:${fabricLoaderVersion}")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.104.0+1.21.1")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabricAPIVersion}+${minecraftVersion}")
     modImplementation(fabricApi.module("fabric-command-api-v2", "0.104.0+1.21.1"))
 
     modImplementation("eu.pb4:polymer-core:0.9.18+1.21.1")
     modImplementation("eu.pb4:polymer-resource-pack:0.9.18+1.21.1")
     modImplementation("eu.pb4:polymer-autohost:0.9.18+1.21.1")
-    modImplementation("de.tomalbrc:filament:0.14.7+1.21.1")
+    modImplementation("de.tomalbrc:filament:0.14.10+1.21.1")
 
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.12.3+kotlin.2.0.21")
     modImplementation("eu.pb4:sgui:1.6.1+1.21.1")
-    modImplementation("com.cobblemon:fabric:1.6.0+1.21.1-SNAPSHOT")
+    modImplementation("com.cobblemon:fabric:${cobblemonVersion}+${minecraftVersion}")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")

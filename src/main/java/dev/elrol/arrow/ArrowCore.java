@@ -26,6 +26,7 @@ import net.impactdev.impactor.api.Impactor;
 import net.impactdev.impactor.api.economy.EconomyService;
 import net.kyori.adventure.text.TextComponent;
 import net.minecraft.item.Items;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -45,6 +46,8 @@ public class ArrowCore implements ModInitializer {
     public static final IArrowAPI INSTANCE = new ArrowAPI();
     public static final CoreMenuItems MENU_ITEMS = new CoreMenuItems();
 
+    private static MinecraftServer serverInstance = null;
+
     public static void registerMod(String modid) {
         FilamentLoader.loadModels(modid, modid);
         FilamentLoader.loadItems(modid);
@@ -61,7 +64,7 @@ public class ArrowCore implements ModInitializer {
         if(FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) return;
         CONFIG = CONFIG.load();
 
-        PlayerDataTypes.register(PlayerDataCore.DATA_ID, PlayerDataCore.MAP_CODEC);
+        PlayerDataTypes.register(PlayerDataCore.DATA_ID, PlayerDataCore.CODEC);
 
         registerCommands();
         registerEvents();
@@ -113,7 +116,10 @@ public class ArrowCore implements ModInitializer {
             });
         }));
 
-        ServerLifecycleEvents.SERVER_STARTING.register((server) -> eventRegistry.register());
+        ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
+            serverInstance = server;
+            eventRegistry.register();
+        });
 
         eventRegistry.registerEvent(() -> ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
             ArrowCoreConstants.SERVER_DATA_DIR = new File(ArrowCoreConstants.ARROW_DATA_DIR, "/server_data");
@@ -220,6 +226,10 @@ public class ArrowCore implements ModInitializer {
             playerDataRegistry.save(player.getUuid());
             if(CONFIG.isDebug) LOGGER.warn("{} has disconnected. Data was saved.", networkHandler.player.getName().getLiteralString());
         }));
+    }
+
+    public static MinecraftServer getServer() {
+        return serverInstance;
     }
 
 }

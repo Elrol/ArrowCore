@@ -3,6 +3,9 @@ package dev.elrol.arrow.libs;
 import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonItems;
 import com.cobblemon.mod.common.api.moves.Move;
+import com.cobblemon.mod.common.api.pokedex.Dexes;
+import com.cobblemon.mod.common.api.pokedex.PokedexManager;
+import com.cobblemon.mod.common.api.pokedex.PokedexValueCalculator;
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
@@ -22,6 +25,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -138,5 +142,17 @@ public class CobblemonUtils {
     public static boolean hasGender(Pokemon pokemon) {
         return pokemon.getSpecies().getPossibleGenders().contains(Gender.MALE) &&
                 pokemon.getSpecies().getPossibleGenders().contains(Gender.FEMALE);
+    }
+
+    public static PokedexManager getDexManager(ServerPlayerEntity player) {
+        return Cobblemon.INSTANCE.getPlayerDataManager().getPokedexData(player);
+    }
+
+    public static List<Identifier> getDexRegions() {
+        return Dexes.INSTANCE.getDexEntryMap().keySet().stream().toList();
+    }
+
+    public static <T> T calcDex(ServerPlayerEntity player, Identifier region, PokedexValueCalculator<T> calculator) {
+        return getDexManager(player).getDexCalculatedValue(region, calculator);
     }
 }

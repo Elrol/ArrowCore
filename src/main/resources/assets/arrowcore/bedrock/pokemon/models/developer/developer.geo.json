@@ -30,6 +30,17 @@
 					]
 				},
 				{
+					"name": "locator_item",
+					"parent": "torso",
+					"pivot": [2, 20, -3],
+					"locators": {
+						"item": {
+							"offset": [2, 21, -3],
+							"rotation": [-90, 0, 0]
+						}
+					}
+				},
+				{
 					"name": "head",
 					"parent": "torso",
 					"pivot": [0, 25, 0],

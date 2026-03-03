@@ -27,7 +27,7 @@ public abstract class _MenuBase {
 
     public <T extends ScreenHandler> _MenuBase(ServerPlayerEntity player, ScreenHandlerType<T> type) {
         this.player = player;
-        this.data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player.getUuid());
+        updateData();
         this.menu = new  _ModMenu(getMenuName(), type, player, false);
 
         Style style = Style.EMPTY.withFont(getMenuFont());
@@ -84,11 +84,7 @@ public abstract class _MenuBase {
     }
 
     protected void navigateToMenu(_MenuBase menu) {
-        PlayerDataCore coreData = data.get(new PlayerDataCore());
-        coreData.menuHistory.addFirst(getMenuName());
-        data.put(coreData);
-        menu.open();
-        close();
+        navigateToMenu(menu, menu::open);
     }
 
     protected void navigateToMenu(String name) {
@@ -98,6 +94,16 @@ public abstract class _MenuBase {
         } else {
             ArrowCore.LOGGER.error("Menu was null for type {}", name);
         }
+    }
+
+    protected void navigateToMenu(_MenuBase menu, Runnable runnable) {
+        PlayerDataCore coreData = data.get(new PlayerDataCore());
+        coreData.menuHistory.addFirst(getMenuName());
+        data.put(coreData);
+
+        runnable.run();
+
+        close();
     }
 
     public abstract int getMenuID();
@@ -118,6 +124,10 @@ public abstract class _MenuBase {
 
     protected void click() {
         player.getServerWorld().playSound(null, player.getBlockPos(), SoundEvents.UI_BUTTON_CLICK.value(), SoundCategory.MASTER, 1.0f, 1.0f);
+    }
+
+    protected void updateData() {
+        this.data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player.getUuid());
     }
 
     @Nonnull

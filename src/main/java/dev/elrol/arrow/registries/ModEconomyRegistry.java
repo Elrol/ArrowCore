@@ -13,6 +13,7 @@ import dev.elrol.arrow.data.Currency;
 import dev.elrol.arrow.data.ArrowPlayerData;
 import dev.elrol.arrow.data.PlayerDataCore;
 import dev.elrol.arrow.libs.ArrowCoreConstants;
+import dev.elrol.arrow.libs.ModTranslations;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.MutableText;
@@ -41,13 +42,14 @@ public class ModEconomyRegistry implements IEconomyRegistry {
     }
 
     @Override
-    public @Nullable Currency getPrimary() {
+    public @NotNull Currency getPrimary() {
+        if(primary == null) throw new RuntimeException("Getting primary but it was null");
         return primary;
     }
 
     @Override
-    public @Nullable Currency getCurrency(String id) {
-        return currencyMap.get(id);
+    public @NotNull Currency getCurrency(String id) {
+        return currencyMap.getOrDefault(id, getPrimary());
     }
 
     @Override
@@ -69,6 +71,7 @@ public class ModEconomyRegistry implements IEconomyRegistry {
             primary = currency;
 
         currencyMap.put(currency.getID(), currency);
+        ArrowCore.LOGGER.warn("Currnency was registered : {}", currency.getSingular());
         save();
     }
 
@@ -175,6 +178,19 @@ public class ModEconomyRegistry implements IEconomyRegistry {
     }
 
     @Override
+    public void withdrawAndNotify(ServerPlayerEntity player, BigDecimal amount, Currency currency) {
+        Account account = getAccount(player.getUuid(), currency);
+        withdraw(player, amount, currency);
+
+        player.sendMessage(ModTranslations.err("lost_money_1")
+                .append(getAmount(amount))
+                .append(ModTranslations.err("lost_money_2"))
+                .append(getAmount(account.getBalance()))
+                .append(ModTranslations.err("lost_money_3"))
+        );
+    }
+
+    @Override
     public void deposit(UUID uuid, BigDecimal amount) {
         deposit(uuid, amount, primary);
     }
@@ -196,6 +212,19 @@ public class ModEconomyRegistry implements IEconomyRegistry {
     @Override
     public void deposit(ServerPlayerEntity player, BigDecimal amount, Currency currency) {
         deposit(player.getUuid(), amount, currency);
+    }
+
+    @Override
+    public void depositAndNotify(ServerPlayerEntity player, BigDecimal amount, Currency currency) {
+        Account account = getAccount(player.getUuid(), currency);
+        deposit(player, amount, currency);
+
+        player.sendMessage(ModTranslations.msg("got_money_1")
+                .append(getAmount(amount, currency))
+                .append(ModTranslations.msg("got_money_2"))
+                .append(getAmount(account.getBalance(), currency))
+                .append(ModTranslations.msg("got_money_3"))
+        );
     }
 
     @Override
@@ -269,27 +298,29 @@ public class ModEconomyRegistry implements IEconomyRegistry {
         return uuids;
     }
 
-    private void load() {
+    public void load() {
+        currencyMap.clear();
+
         if(configDir.mkdirs())
             ArrowCore.LOGGER.warn("Economy Config Folder Created");
 
-        File[] files = configDir.listFiles();
+        File[] files = configDir.listFiles(file -> file.getName().endsWith(".json"));
         Gson gson = ArrowCoreConstants.makeGSON();
 
         if(files != null) {
             for (File file : files) {
                 try(FileReader reader = new FileReader(file)) {
+                    String id = file.getName().replace(".json", "");
                     JsonElement json = gson.fromJson(reader, JsonElement.class);
-                    DataResult<Pair<Currency, JsonElement>> result = Currency.CODEC.decode(JsonOps.INSTANCE, json);
-                    if(result.isSuccess()) {
-                        String id = file.getName().replace(".json", "");
-                        Currency currency = result.getOrThrow().getFirst();
-                        if(currency.getID().equals(id)) {
-                            addCurrency(currency);
-                        } else {
-                            ArrowCore.LOGGER.error("Currency file [{}] has an ID that is different than the file name.", file.getName());
-                        }
-                    }
+                    Currency.CODEC.decode(JsonOps.INSTANCE, json)
+                            .resultOrPartial(err -> ArrowCore.LOGGER.error("Failed to decode Currency {}: {}", id, err)
+                            ).ifPresent(pair -> {
+                                if(pair.getFirst().getID().equals(id)) {
+                                    addCurrency(pair.getFirst());
+                                } else {
+                                    ArrowCore.LOGGER.error("Currency file [{}] has an ID that is different than the file name.", file.getName());
+                                }
+                            });
                 } catch (IOException e) {
                     ArrowCore.LOGGER.error(e.getMessage());
                 }
@@ -304,9 +335,12 @@ public class ModEconomyRegistry implements IEconomyRegistry {
                 Formatting.RED,
                 new BigDecimal(100),
                 true));
+        if(primary == null) {
+            throw new RuntimeException("No primary currency found after loading files and/or creating default");
+        }
     }
 
-    private void save() {
+    public void save() {
         currencyMap.forEach((id, currency) -> {
             File file = new File(configDir, id + ".json");
 

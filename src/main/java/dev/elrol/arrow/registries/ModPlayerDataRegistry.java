@@ -3,15 +3,14 @@ package dev.elrol.arrow.registries;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import dev.elrol.arrow.ArrowCore;
-import dev.elrol.arrow.api.data.IPlayerData;
 import dev.elrol.arrow.api.events.ArrowEvents;
 import dev.elrol.arrow.api.registries.IPlayerDataRegistry;
 import dev.elrol.arrow.data.ArrowPlayerData;
 import dev.elrol.arrow.data.PlayerDataCore;
-import dev.elrol.arrow.data.PlayerDataType;
 import dev.elrol.arrow.libs.ArrowCoreConstants;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.NotNull;
@@ -40,6 +39,16 @@ public class ModPlayerDataRegistry implements IPlayerDataRegistry {
     @NotNull
     public ArrowPlayerData getPlayerData(UUID uuid) {
         return playerDataMap.containsKey(uuid) ? playerDataMap.get(uuid) : load(uuid);
+    }
+
+    @Override
+    public void updatePlayerData(ServerPlayerEntity player, ArrowPlayerData playerData) {
+        updatePlayerData(player.getUuid(), playerData);
+    }
+
+    @Override
+    public void updatePlayerData(UUID uuid, ArrowPlayerData playerData) {
+        playerDataMap.put(uuid, playerData);
     }
 
     public void save(UUID uuid, ArrowPlayerData data) {
@@ -98,7 +107,8 @@ public class ModPlayerDataRegistry implements IPlayerDataRegistry {
                 if(newJsonFile.exists()) {
                     FileReader reader = new FileReader(newJsonFile);
                     JsonElement json = GSON.fromJson(reader, TypeToken.get(JsonElement.class));
-                    data = ArrowPlayerData.CODEC.decode(JsonOps.INSTANCE, json).getOrThrow().getFirst();
+                    DataResult<Pair<ArrowPlayerData, JsonElement>> result = ArrowPlayerData.CODEC.decode(JsonOps.INSTANCE, json);
+                    data = result.getOrThrow().getFirst();
                 } else {
                     if(!datFile.exists()) {
                         data = new ArrowPlayerData(uuid);

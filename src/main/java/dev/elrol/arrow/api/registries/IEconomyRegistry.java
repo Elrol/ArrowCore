@@ -43,10 +43,14 @@ public interface IEconomyRegistry {
     void withdraw(ServerPlayerEntity player, BigDecimal amount);
     void withdraw(ServerPlayerEntity player, BigDecimal amount, Currency currency);
 
+    void withdrawAndNotify(ServerPlayerEntity player, BigDecimal amount, Currency currency);
+
     void deposit(UUID uuid, BigDecimal amount);
     void deposit(UUID uuid, BigDecimal amount, Currency currency);
     void deposit(ServerPlayerEntity player, BigDecimal amount);
     void deposit(ServerPlayerEntity player, BigDecimal amount, Currency currency);
+
+    void depositAndNotify(ServerPlayerEntity player, BigDecimal amount, Currency currency);
 
     MutableText getAmount(Number amount);
     MutableText getAmount(Number amount, Currency currency);
@@ -54,4 +58,7 @@ public interface IEconomyRegistry {
     String formatAmount(Number amount, Currency currency);
 
     List<UUID> getTopBalances(Currency currency);
+
+    void load();
+    void save();
 }

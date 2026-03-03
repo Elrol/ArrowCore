@@ -7,7 +7,7 @@ public interface IMenuRegistry {
 
     void registerMenu(String name, Class<? extends _MenuBase> clazz);
 
-    _MenuBase createMenu(String name, ServerPlayerEntity player);
+    <T extends _MenuBase> T createMenu(String name, ServerPlayerEntity player);
 
     boolean exists(String name);
 }

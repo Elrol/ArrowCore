@@ -10,8 +10,7 @@ public interface IPlayerData {
 
     String getDataID();
 
-    <T extends IPlayerData> Codec<T> getCodec();
-    <T extends IPlayerData> MapCodec<T> getMapCodec();
+    <T extends IPlayerData> MapCodec<T> getCodec();
 
     PlayerDataType<?> getType();
 

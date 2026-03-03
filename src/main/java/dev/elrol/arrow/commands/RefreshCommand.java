@@ -27,6 +27,7 @@ public class RefreshCommand extends _CommandBase {
     private int noArgs(CommandContext<ServerCommandSource> context) {
         //TODO reload data and configs
         ArrowCore.CONFIG.load();
+        ArrowCore.INSTANCE.getEconomyRegistry().load();
 
         ActionResult result = RefreshCallback.EVENT.invoker().refresh(context.getSource().getServer());
         context.getSource().sendMessage(ModTranslations.msg("refreshed"));

@@ -1,10 +1,15 @@
 package dev.elrol.arrow.libs;
 
+import dev.elrol.arrow.ArrowCore;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class ModUtils {
 
@@ -25,4 +30,12 @@ public class ModUtils {
         return Registries.ITEM.get(Identifier.of(id));
     }
 
+    @Nullable
+    public static ServerPlayerEntity getPlayer(UUID uuid) {
+        MinecraftServer server = ArrowCore.getServer();
+        if(server != null) {
+            return server.getPlayerManager().getPlayer(uuid);
+        }
+        return null;
+    }
 }
