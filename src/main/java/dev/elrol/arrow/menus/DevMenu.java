@@ -49,17 +49,6 @@ public class DevMenu extends _PageMenuBase {
         goldTest.setCallback((type) -> ArrowCore.INSTANCE.getEconomyRegistry().deposit(player, BigDecimal.valueOf(100)));
         slimeTest.setCallback(() -> navigateToMenu("dev"));
 
-        menu.createTimer(new TimerTask() {
-            @Override
-            public void run() {
-                List<Text> lore = new ArrayList<>();
-                lore.add(Text.literal("Lore"));
-                lore.add(Text.literal(" - " + LocalDateTime.now().getSecond()));
-
-                eggTest.setLore(lore);
-            }
-        }, 1000, 1000);
-
         buttonsToAdd.forEach((id, function) -> DEV_MENU_MAP.put(id, function.addButton(player)));
 
         drawItems(DEV_MENU_MAP);

@@ -298,6 +298,18 @@ public class ModEconomyRegistry implements IEconomyRegistry {
         return uuids;
     }
 
+    public Map<UUID, Account> getAllAccounts(Currency currency) {
+        Map<UUID, Account> map = new HashMap<>();
+        ArrowCore.INSTANCE.getPlayerDataRegistry().getLoadedData().keySet().forEach((uuid) -> map.put(uuid, getAccount(uuid, currency)));
+        return map;
+    }
+
+    public Map<UUID, BigDecimal> getAllBalances(Currency currency) {
+        Map<UUID, BigDecimal> map = new HashMap<>();
+        ArrowCore.INSTANCE.getPlayerDataRegistry().getLoadedData().keySet().forEach((uuid) -> map.put(uuid, getBal(uuid, currency)));
+        return map;
+    }
+
     public void load() {
         currencyMap.clear();
 

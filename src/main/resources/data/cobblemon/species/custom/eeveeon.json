@@ -5,7 +5,7 @@
     "primaryType": "normal",
     "abilities": [
         "adaptability",
-		"anticipation",
+        "anticipation",
         "h:normalize"
     ],
     "baseStats": {
@@ -16,7 +16,7 @@
         "special_defence": 95,
         "speed": 110
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true
         }
@@ -67,8 +67,23 @@
         "tm:icebeam",
         "tm:playrough",
         "tm:ironhead",
-        "tm:psychic"
-      ],
+        "tm:psychic",
+        "tm:attract",
+        "tm:bellydrum",
+        "tm:chipaway",
+        "tm:howl",
+        "tm:hyperfang",
+        "tm:nobleroar",
+        "tm:reflecttype",
+        "tm:relicsong",
+        "tm:thunderwave",
+        "tm:smellingsalts",
+        "tm:firstimpression",
+        "tm:nuzzle",
+        "tm:powertrip",
+        "tm:rage",
+        "tm:return"
+    ],
     "labels": [
         "custom"
     ],
@@ -85,7 +100,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"speed": 2
+        "speed": 2
     },
     "height": 11,
     "weight": 300

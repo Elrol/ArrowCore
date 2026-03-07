@@ -5,7 +5,7 @@
     "primaryType": "steel",
     "abilities": [
         "battlearmor",
-		"clearbody",
+        "clearbody",
         "h:analytic"
     ],
     "baseStats": {
@@ -16,7 +16,7 @@
         "special_defence": 85,
         "speed": 110
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true
         }
@@ -40,7 +40,7 @@
         "5:metalsound",
         "8:charge",
         "12:chargebeam",
-        "14:autotomize",
+        "14:autonomize",
         "17:discharge",
         "18:geargrind",
         "22:lockon",
@@ -54,6 +54,7 @@
         "43:thunderwave",
         "50:steelroller",
         "54:metalclaw",
+        "55:paraboliccharge",
         "57:meteormash",
         "60:magnetrise",
         "67:swordsdance",
@@ -64,8 +65,22 @@
         "tm:trickroom",
         "tm:recover",
         "tm:explosion",
-        "tm:smartstrike"
-      ],
+        "tm:smartstrike",
+        "tm:boltstrike",
+        "tm:thunderfang",
+        "tm:volttackle",
+        "tm:thunder",
+        "tm:overheat",
+        "tm:searingshot",
+        "tm:heatwave",
+        "tm:incinerate",
+        "tm:blastburn",
+        "tm:amnesia",
+        "tm:disable",
+        "tm:detect",
+        "tm:flash",
+        "tm:futuresight"
+    ],
     "labels": [
         "custom"
     ],
@@ -82,7 +97,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"speed": 2
+        "speed": 2
     },
     "height": 11,
     "weight": 300

@@ -5,7 +5,7 @@
     "primaryType": "ground",
     "abilities": [
         "arenatrap",
-		"owntempo",
+        "owntempo",
         "h:moldbreaker"
     ],
     "baseStats": {
@@ -16,7 +16,7 @@
         "special_defence": 75,
         "speed": 60
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true
         }
@@ -57,13 +57,28 @@
         "60:bonemerang",
         "67:stoneedge",
         "73:stompingtantrum",
-        "76:earthquake",
         "80:fissure",
         "tm:recover",
         "tm:explosion",
         "tm:stealthrock",
-        "tm:imprison"
-      ],
+        "tm:imprison",
+        "tm:earthquake",
+        "tm:headlongrush",
+        "tm:drillrun",
+        "tm:nightslash",
+        "tm:throatchop",
+        "tm:darkpulse",
+        "tm:knockoff",
+        "tm:endure",
+        "tm:followme",
+        "tm:grudge",
+        "tm:harden",
+        "tm:meanlook",
+        "tm:nastyplot",
+        "tm:brickbreak",
+        "tm:dragonhammer",
+        "tm:falseswipe"
+    ],
     "labels": [
         "custom"
     ],
@@ -80,7 +95,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"speed": 2
+        "speed": 2
     },
     "height": 11,
     "weight": 300

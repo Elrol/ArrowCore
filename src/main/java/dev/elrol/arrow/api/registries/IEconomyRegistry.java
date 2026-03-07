@@ -59,6 +59,9 @@ public interface IEconomyRegistry {
 
     List<UUID> getTopBalances(Currency currency);
 
+    Map<UUID, Account> getAllAccounts(Currency currency);
+    Map<UUID, BigDecimal> getAllBalances(Currency currency);
+
     void load();
     void save();
 }

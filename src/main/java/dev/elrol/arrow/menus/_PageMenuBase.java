@@ -35,29 +35,22 @@ public abstract class _PageMenuBase extends _MenuBase {
 
         super.drawMenu();
 
-        setSlot(36, GuiElementBuilder.from(new ItemStack(page <= 0 ? CoreMenuItems.LEFT_BUTTON_DISABLED : CoreMenuItems.LEFT_BUTTON)).setCallback((index, clickType, slotActionType, slotGuiInterface) -> {
-                    if (page > 0) {
-                        page--;
-                        _PageMenuBase pageMenu = (_PageMenuBase) ArrowCore.INSTANCE.getMenuRegistry().createMenu(getMenuName(), player);
-                        if(pageMenu != null) {
-                            pageMenu.page = page;
-                            pageMenu.open();
-                        }
-                    }
-                }).setName(ModTranslations.translate("arrow.menu.item.page.next").formatted(page < getLastPage() ? Formatting.RED : Formatting.DARK_GRAY))
-        );
+        setSlot(36, GuiElementBuilder.from(new ItemStack(page <= 0 ? CoreMenuItems.LEFT_BUTTON_DISABLED : CoreMenuItems.LEFT_BUTTON)).setCallback(this::previousPage).setName(ModTranslations.translate("arrow.menu.item.page.next").formatted(page < getLastPage() ? Formatting.RED : Formatting.DARK_GRAY)));
+        setSlot(44, GuiElementBuilder.from(new ItemStack(page >= getLastPage() ? CoreMenuItems.RIGHT_BUTTON_DISABLED : CoreMenuItems.RIGHT_BUTTON)).setCallback(this::nextPage).setName(ModTranslations.translate("arrow.menu.item.page.next").formatted(page < getLastPage() ? Formatting.GREEN : Formatting.DARK_GRAY)));
+    }
 
-        setSlot(44, GuiElementBuilder.from(new ItemStack(page >= getLastPage() ? CoreMenuItems.RIGHT_BUTTON_DISABLED : CoreMenuItems.RIGHT_BUTTON)).setCallback((index, clickType, slotActionType, slotGuiInterface) -> {
-                    if (page < getLastPage()) {
-                        page++;
-                        _PageMenuBase pageMenu = (_PageMenuBase) ArrowCore.INSTANCE.getMenuRegistry().createMenu(getMenuName(), player);
-                        if(pageMenu != null) {
-                            pageMenu.page = page;
-                            pageMenu.open();
-                        }
-                    }
-                }).setName(ModTranslations.translate("arrow.menu.item.page.next").formatted(page < getLastPage() ? Formatting.GREEN : Formatting.DARK_GRAY))
-        );
+    private void nextPage() {
+        if (page < getLastPage()) {
+            page++;
+            drawMenu();
+        }
+    }
+
+    private void previousPage() {
+        if (page > 0) {
+            page--;
+            drawMenu();
+        }
     }
 
     protected <T> void drawItems(Map<String, T> map) {

@@ -20,6 +20,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 public class ModPlayerDataRegistry implements IPlayerDataRegistry {
 
@@ -135,20 +136,21 @@ public class ModPlayerDataRegistry implements IPlayerDataRegistry {
     }
 
     @Override
-    public List<ArrowPlayerData> loadAll() {
-        List<ArrowPlayerData> list = new ArrayList<>();
-        String[] fileNames = ArrowCoreConstants.PLAYER_DATA_DIR.list((file, name) -> name.endsWith(".dat"));
+    public void loadAll() {
+        CompletableFuture.runAsync(() -> {
+            List<ArrowPlayerData> list = new ArrayList<>();
+            String[] fileNames = ArrowCoreConstants.PLAYER_DATA_DIR.list((file, name) -> name.endsWith(".dat"));
 
-        if(fileNames != null) {
-            for (String files : fileNames) {
-                ArrowCore.LOGGER.info(files);
-                list.add(load(UUID.fromString(files.replace(".dat", ""))));
+            if(fileNames != null) {
+                for (String files : fileNames) {
+                    ArrowCore.LOGGER.info(files);
+                    list.add(load(UUID.fromString(files.replace(".dat", ""))));
+                }
             }
-        }
-        ArrowEvents.ALL_PLAYER_DATA_LOADED_EVENT.invoker().loaded(list);
-
-        saveAll();
-        return list;
+            ArrowCore.getServer().execute(() -> {
+                ArrowEvents.ALL_PLAYER_DATA_LOADED_EVENT.invoker().loaded(list);
+            });
+        });
     }
 
     @Override

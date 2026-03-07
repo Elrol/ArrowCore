@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrushableBlockEntityMixin {
 
     @Inject(method = "finishBrushing", at = @At("TAIL"))
-    private void injected(PlayerEntity player, CallbackInfo ci) {
+    private void arrowcore$finishBrushing(PlayerEntity player, CallbackInfo ci) {
         if(player instanceof ServerPlayerEntity serverPlayer) {
             FinishBrushingCallback.EVENT.invoker().finish(serverPlayer);
         }

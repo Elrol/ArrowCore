@@ -33,7 +33,7 @@ public abstract class _MenuBase {
         Style style = Style.EMPTY.withFont(getMenuFont());
 
         this.menu.setTitle(Text.literal("七七七七七七七七" + getMenuUnicode()).setStyle(style).formatted(Formatting.WHITE));
-        this.menu.onClose();
+        this.menu.setTickCallback(this::onTick);
     }
 
     public void open() {
@@ -129,6 +129,8 @@ public abstract class _MenuBase {
     protected void updateData() {
         this.data = ArrowCore.INSTANCE.getPlayerDataRegistry().getPlayerData(player.getUuid());
     }
+
+    protected void onTick() {}
 
     @Nonnull
     public abstract String getMenuName();

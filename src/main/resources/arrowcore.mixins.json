@@ -3,11 +3,17 @@
   "minVersion": "0.8",
   "package": "dev.elrol.arrow.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [],
+  "mixins": [
+    "BlockStateMixin",
+    "ExplosionMixin",
+    "FireBlockMixin",
+    "FlowableFluidMixin",
+    "PistonHandlerMixin"
+  ],
   "client": [],
   "server": [
-    "BrushableBlockEntityMixin",
-    "BlockItemMixin"
+    "BlockItemMixin",
+    "BrushableBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

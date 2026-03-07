@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 public class _ModMenu extends SimpleGui {
 
-    protected Timer timer;
+    private Runnable tickCallback;
     public final String menuName;
     boolean canClose = true;
 
@@ -29,7 +29,6 @@ public class _ModMenu extends SimpleGui {
 
     @Override
     public void onClose() {
-        if(timer != null) cancelTimer();
         MenuCloseCallback.EVENT.invoker().onClose(this);
         super.onClose();
     }
@@ -43,19 +42,15 @@ public class _ModMenu extends SimpleGui {
         return canClose;
     }
 
-    public void createTimer(TimerTask task, long delay) {
-        if(timer == null) timer = new Timer();
-
-        timer.schedule(task, delay);
+    @Override
+    public void onTick() {
+        super.onTick();
+        if(tickCallback != null) {
+            tickCallback.run();
+        }
     }
 
-    public void createTimer(TimerTask task, long delay, long period) {
-        if(timer == null) timer = new Timer();
-
-        timer.schedule(task, delay, period);
-    }
-
-    public void cancelTimer() {
-        timer.cancel();
+    public void setTickCallback(Runnable callback) {
+        tickCallback = callback;
     }
 }

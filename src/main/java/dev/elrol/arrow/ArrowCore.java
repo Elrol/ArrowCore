@@ -12,6 +12,7 @@ import dev.elrol.arrow.commands.RefreshCommand;
 import dev.elrol.arrow.config.ArrowConfig;
 import dev.elrol.arrow.libs.ArrowCoreConstants;
 import dev.elrol.arrow.libs.MenuUtils;
+import dev.elrol.arrow.libs.MetricsExporter;
 import dev.elrol.arrow.menus.DevMenu;
 import dev.elrol.arrow.registries.CoreMenuItems;
 import dev.elrol.arrow.registries.PlayerDataTypes;
@@ -53,6 +54,10 @@ public class ArrowCore implements ModInitializer {
         FilamentLoader.loadItems(modid);
         FilamentLoader.loadBlocks(modid);
         PolymerResourcePackUtils.addModAssets(modid);
+
+        //Init file dirs
+        if(ArrowCoreConstants.PLAYER_DATA_DIR.mkdirs()) LOGGER.warn("Creating Player Data Directory");
+        if(ArrowCoreConstants.ARROW_DATA_DIR.mkdirs()) LOGGER.warn("Creating Arrow Data Directory");
     }
 
     static {
@@ -61,6 +66,7 @@ public class ArrowCore implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        MetricsExporter.start();
         if(FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) return;
         CONFIG = CONFIG.load();
 
@@ -184,6 +190,7 @@ public class ArrowCore implements ModInitializer {
         }));
 
         eventRegistry.registerEvent(() -> ServerLifecycleEvents.SERVER_STOPPING.register((server) -> {
+            MetricsExporter.stop();
             INSTANCE.getPlayerDataRegistry().saveAll();
             INSTANCE.getServerDataRegistry().save();
         }));

@@ -5,7 +5,7 @@
     "primaryType": "rock",
     "abilities": [
         "sandforce",
-		"sturdy",
+        "sturdy",
         "h:keeneye"
     ],
     "baseStats": {
@@ -16,7 +16,7 @@
         "special_defence": 85,
         "speed": 110
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true
         }
@@ -65,8 +65,22 @@
         "tm:reflect",
         "tm:ironhead",
         "tm:recover",
-        "tm:destinybond"
-      ],
+        "tm:destinybond",
+        "tm:gigaimpact",
+        "tm:smackdown",
+        "tm:rockwrecker",
+        "tm:wideguard",
+        "tm:highhorsepower",
+        "tm:dig",
+        "tm:mudshot",
+        "tm:meteormash",
+        "tm:irontail",
+        "tm:heavyslam",
+        "tm:foulplay",
+        "tm:snatch",
+        "tm:eruption",
+        "tm:lavaplume"
+    ],
     "labels": [
         "custom"
     ],
@@ -83,7 +97,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"speed": 2
+        "speed": 2
     },
     "height": 11,
     "weight": 300

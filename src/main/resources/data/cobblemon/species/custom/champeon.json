@@ -5,7 +5,7 @@
     "primaryType": "fighting",
     "abilities": [
         "furcoat",
-		"defiant",
+        "defiant",
         "h:scrappy"
     ],
     "baseStats": {
@@ -16,13 +16,13 @@
         "special_defence": 75,
         "speed": 85
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true,
             "swim": {
                 "swimSpeed": 0.2,
                 "canSwimInWater": true,
-				"canBreatheUnderwater": false
+                "canBreatheUnderwater": false
             }
         }
     },
@@ -69,10 +69,23 @@
         "tm:bodypress",
         "tm:irondefense",
         "tm:substitute",
-        "tm:firepunch",
-        "tm:icepunch",
-        "tm:thunderpunch"
-      ],
+        "tm:armthrust",
+        "tm:focuspunch",
+        "tm:forcepalm",
+        "tm:highjumpkick",
+        "tm:karatechop",
+        "tm:lowkick",
+        "tm:lowsweep",
+        "tm:matblock",
+        "tm:revenge",
+        "tm:rollingkick",
+        "tm:triplekick",
+        "tm:crosschop",
+        "tm:darkestlariat",
+        "tm:foulplay",
+        "tm:beatup",
+        "tm:partingshot"
+    ],
     "labels": [
         "custom"
     ],
@@ -89,7 +102,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"attack": 3
+        "attack": 3
     },
     "height": 11,
     "weight": 300

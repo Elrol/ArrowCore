@@ -5,7 +5,7 @@
     "primaryType": "poison",
     "abilities": [
         "poisonpoint",
-		"liquidooze",
+        "liquidooze",
         "h:corrosion"
     ],
     "baseStats": {
@@ -16,13 +16,13 @@
         "special_defence": 85,
         "speed": 70
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true,
             "swim": {
                 "swimSpeed": 0.2,
                 "canSwimInWater": true,
-				"canBreatheUnderwater": false
+                "canBreatheUnderwater": false
             }
         }
     },
@@ -78,19 +78,22 @@
         "tm:confuseray",
         "tm:venoshock",
         "tm:doubleteam",
+        "tm:sludgewave",
         "tm:leechseed",
         "tm:imprison",
+        "tm:mudbomb",
+        "tm:spikes",
         "tm:toxicspikes",
         "tm:hyperbeam",
         "tm:protect",
         "tm:payback",
-        "tm:brutalswing",
+        "tm:brutalstrength",
         "tm:storedpower",
         "tm:poisonjab",
         "tm:terablast",
         "tm:shadowball",
         "tm:trickroom"
-      ],
+    ],
     "labels": [
         "custom"
     ],
@@ -108,7 +111,7 @@
     "baseFriendship": 35,
     "evYield": {
         "defence": 1,
-		"special_attack": 2
+        "special_attack": 2
     },
     "height": 11,
     "weight": 300

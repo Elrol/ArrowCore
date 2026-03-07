@@ -6,6 +6,8 @@ import dev.elrol.arrow.ArrowCore;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
+import java.util.List;
+
 public class ArrowConfig extends _BaseConfig {
 
     public static final Codec<ArrowConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
@@ -32,6 +34,7 @@ public class ArrowConfig extends _BaseConfig {
     // TODO Database not being used
     public boolean useDatabase = false;
     public DatabaseInfo databaseInfo = new DatabaseInfo();
+    public MetricsSettings metricsSettings = new MetricsSettings();
 
     // Config Methods
     public ArrowConfig() {
@@ -83,6 +86,39 @@ public class ArrowConfig extends _BaseConfig {
             return (!hostname.isEmpty()) && (port > 0) && (!username.isEmpty()) && (!password.isEmpty() && (!schema.isEmpty()));
         }
 
+    }
+
+    public static class MetricsSettings {
+        public static final Codec<MetricsSettings> CODEC =
+                RecordCodecBuilder.create(instance -> instance.group(
+                        Codec.INT.fieldOf("port").forGetter(MetricsSettings::getPort),
+                        Codec.STRING.fieldOf("defaultTrack").forGetter(MetricsSettings::getDefaultTrack),
+                        Codec.STRING.fieldOf("donorTrack").forGetter(MetricsSettings::getDonorTrack),
+                        Codec.STRING.fieldOf("staffTrack").forGetter(MetricsSettings::getStaffTrack),
+                        Codec.STRING.listOf().fieldOf("currencies").forGetter(MetricsSettings::getCurrencies)
+                ).apply(instance, (port, defaultTrack, donorTrack, staffTrack, currencies) -> {
+                    MetricsSettings data = new MetricsSettings();
+
+                    data.port = port;
+                    data.defaultTrack = defaultTrack;
+                    data.donorTrack = donorTrack;
+                    data.staffTrack = staffTrack;
+                    data.currencies = currencies;
+
+                    return data;
+                }));
+
+        private int port = 9400;
+        private String defaultTrack = "rank";
+        private String donorTrack = "donor";
+        private String staffTrack = "staff";
+        private List<String> currencies = List.of("pokedollar", "eventcoin");
+
+        public int getPort() { return port; }
+        public String getDefaultTrack() { return defaultTrack; }
+        public String getDonorTrack() { return donorTrack; }
+        public String getStaffTrack() { return staffTrack; }
+        public List<String> getCurrencies() { return currencies; }
     }
 
     public static class CustomizerSettings {

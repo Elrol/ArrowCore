@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BlockItemMixin {
 
     @Inject(method = "place(Lnet/minecraft/item/ItemPlacementContext;Lnet/minecraft/block/BlockState;)Z", at = @At("HEAD"), cancellable = true)
-    private void restrict(ItemPlacementContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
+    private void arrowcore$place(ItemPlacementContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         PlayerEntity playerEntity = context.getPlayer();
 
         if(playerEntity instanceof ServerPlayerEntity player) {

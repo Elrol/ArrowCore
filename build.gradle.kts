@@ -12,6 +12,7 @@ val fabricAPIVersion: String by project
 val fabricLoaderVersion: String by project
 val arrowCoreVersion: String by project
 val cobblemonVersion: String by project
+val prometheusVersion: String by project
 
 group = "dev.elrol.arrow"
 version = arrowCoreVersion
@@ -74,6 +75,14 @@ dependencies {
     modImplementation("me.lucko:fabric-permissions-api:0.3.1")
 
     implementation("com.github.Chocohead:Fabric-ASM:v2.3")
+
+    implementation("io.prometheus:simpleclient:${prometheusVersion}")
+    implementation("io.prometheus:simpleclient_httpserver:${prometheusVersion}")
+    implementation("io.prometheus:simpleclient_hotspot:${prometheusVersion}")
+
+    include("io.prometheus:simpleclient:${prometheusVersion}")
+    include("io.prometheus:simpleclient_httpserver:${prometheusVersion}")
+    include("io.prometheus:simpleclient_hotspot:${prometheusVersion}")
 }
 
 tasks.getByName<Test>("test") {

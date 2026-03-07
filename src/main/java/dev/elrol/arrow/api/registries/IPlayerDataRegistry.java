@@ -3,7 +3,6 @@ package dev.elrol.arrow.api.registries;
 import dev.elrol.arrow.data.ArrowPlayerData;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -24,6 +23,6 @@ public interface IPlayerDataRegistry {
 
     ArrowPlayerData load(ServerPlayerEntity player);
     ArrowPlayerData load(UUID uuid);
-    List<ArrowPlayerData> loadAll();
+    void loadAll();
     Map<UUID, ArrowPlayerData> getLoadedData();
 }

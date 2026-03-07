@@ -5,7 +5,7 @@
     "primaryType": "ghost",
     "abilities": [
         "prankster",
-		"insomnia",
+        "insomnia",
         "h:perishbody"
     ],
     "baseStats": {
@@ -16,13 +16,13 @@
         "special_defence": 105,
         "speed": 110
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true,
             "swim": {
                 "swimSpeed": 0.2,
                 "canSwimInWater": true,
-				"canBreatheUnderwater": false
+                "canBreatheUnderwater": false
             }
         }
     },
@@ -92,13 +92,13 @@
         "tm:terablast",
         "tm:zenheadbutt",
         "tm:poltergeist"
-      ],
+    ],
     "labels": [
         "custom"
     ],
     "pokedex": [
-        "cobblemon.species.spectreon.desc1",
-        "cobblemon.species.spectreon.desc2"
+        "cobblemon.species.spectreonee.desc1",
+        "cobblemon.species.spectreonee.desc2"
     ],
     "preEvolution": "eevee",
     "baseScale": 0.7,
@@ -110,7 +110,7 @@
     "baseFriendship": 35,
     "evYield": {
         "speed": 1,
-		"special_attack": 2
+        "special_attack": 2
     },
     "height": 11,
     "weight": 300

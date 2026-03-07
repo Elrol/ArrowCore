@@ -5,7 +5,7 @@
     "primaryType": "flying",
     "abilities": [
         "unburden",
-		"hustle",
+        "hustle",
         "h:simple"
     ],
     "baseStats": {
@@ -16,13 +16,13 @@
         "special_defence": 85,
         "speed": 110
     },
-	"behaviour": {
+    "behaviour": {
         "moving": {
             "canLook": true,
             "swim": {
                 "swimSpeed": 0.2,
                 "canSwimInWater": true,
-				"canBreatheUnderwater": false
+                "canBreatheUnderwater": false
             },
             "fly": {
                 "canFly": true
@@ -64,20 +64,36 @@
         "54:doubleteam",
         "57:roost",
         "60:fly",
+        "64:freezeshock",
         "67:heatwave",
         "73:solarbeam",
         "76:featherdance",
         "80:skydrop",
         "tm:hurricane",
         "tm:swordsdance",
-        "tm:fling"
-      ],
+        "tm:fling",
+        "tm:bravebird",
+        "tm:wingattack",
+        "tm:skyattack",
+        "tm:bounce",
+        "tm:iceshard",
+        "tm:nuzzle",
+        "tm:spark",
+        "tm:heatcrash",
+        "tm:overheat",
+        "tm:sunnyday",
+        "tm:thunderwave",
+        "tm:charge",
+        "tm:hail",
+        "tm:auroraveil",
+        "tm:mist"
+    ],
     "labels": [
         "custom"
     ],
     "pokedex": [
-        "cobblemon.species.aereon.desc1",
-        "cobblemon.species.aereon.desc2"
+        "cobblemon.species.aereonee.desc1",
+        "cobblemon.species.aereonee.desc2"
     ],
     "preEvolution": "eevee",
     "baseScale": 0.6,
@@ -88,7 +104,7 @@
     },
     "baseFriendship": 35,
     "evYield": {
-		"speed": 2
+        "speed": 2
     },
     "height": 11,
     "weight": 300
